@@ -949,6 +949,10 @@ In order to examine the effect of promotion, I narrowed the scope of analysis do
 
 After that, I went on to fit auto_arima to all the combinations of store-city-product and select those combinations that yield significant p-values. These are the cases where promotions have an positive effect on sales.
 
+  * [6.1 Checking the condition](#1-checking-the-conditions)
+  * [6.2 Examine one SARIMAX model](#2-fit-sarimax-model)
+  * [6.3 Promotion on sales of all products](#3-promotion-impact-on-sales-of-all-products)
+
 (Note for bugs and potential problems)
 
 #### Getting and wrangling the data

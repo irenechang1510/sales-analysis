@@ -10,11 +10,10 @@ The write-up of this project is being done along with this notebook: You can acc
 * [2. Sales of different products by promotion](#2-sales-of-different-products-by-promotion)
 * [3. Locations](#3-locations)
 * [4. Oil prices](#4-is-there-more-promotions-if-oil-prices-rise)
-* [5. Holidays and promotions](#5-holidays-and-promotions)
-* [6. Are promotions effective?](#6-are-promotions-effective)
-  * [6.1 Checking the condition](#1-checking-the-conditions)
-  * [6.2 Examine one SARIMAX model](#2-fit-sarimax-model)
-  * [6.3 Promotion on sales of all products](#3-promotion-impact-on-sales-of-all-products)
+* [5. Are promotions effective?](#5-are-promotions-effective)
+  * [5.1 Checking the condition](#1-checking-the-conditions)
+  * [5.2 Examine one SARIMAX model](#2-fit-sarimax-model)
+  * [5.3 Promotion on sales of all products](#3-promotion-impact-on-sales-of-all-products)
 
 _This project is made possible with the help of my mentors: Chaya, Kyle, Jeremy. Thank you so much!_
 
@@ -27,7 +26,12 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from kats.consts import TimeSeriesData
+import pmdarima as pmd
 %matplotlib inline
+import warnings
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+warnings.filterwarnings("ignore")
 # restart a new connection
 conn = mysql.connector.connect(user='root', password='sql',
                               host='localhost')
@@ -241,6 +245,8 @@ plt.show()
 
 
 ## 3. Locations
+
+Analyses of this section is detailed in the write-up.
 
 
 ```python
@@ -489,6 +495,8 @@ plt.show()
 ![png](promotion_analysis_files/promotion_analysis_24_0.png)
 
 
+There are certain differences in the two distribution, but we don't know if it's indicative and significant, especially when the datasize is really small here.
+
 ## 4. Is there more promotions if oil prices rise?
 
 
@@ -557,13 +565,12 @@ oil_data.head()
 
 
 ```python
-# examine the average monthly transactions
-sql = "SELECT date, sum(onpromotion) as onpromotion FROM train GROUP BY date"
+sql = "SELECT date, sum(onpromotion) as onpromotion, avg(sales) as sales FROM train GROUP BY date"
 cur.execute(sql)
 query = cur.fetchall()
-monthly_transactions = pd.DataFrame(query, columns=['date', "onpromotion"])
-monthly_transactions.date = pd.to_datetime(monthly_transactions.date)
-monthly_transactions.head()
+monthly_transactions_sales = pd.DataFrame(query, columns=['date', "onpromotion", "sales"])
+monthly_transactions_sales.date = pd.to_datetime(monthly_transactions_sales.date)
+monthly_transactions_sales.head()
 ```
 
 
@@ -589,6 +596,7 @@ monthly_transactions.head()
       <th></th>
       <th>date</th>
       <th>onpromotion</th>
+      <th>sales</th>
     </tr>
   </thead>
   <tbody>
@@ -596,26 +604,31 @@ monthly_transactions.head()
       <th>0</th>
       <td>2013-01-01</td>
       <td>0</td>
+      <td>1.409438</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2013-01-02</td>
       <td>0</td>
+      <td>278.390807</td>
     </tr>
     <tr>
       <th>2</th>
       <td>2013-01-03</td>
       <td>0</td>
+      <td>202.840197</td>
     </tr>
     <tr>
       <th>3</th>
       <td>2013-01-04</td>
       <td>0</td>
+      <td>198.911154</td>
     </tr>
     <tr>
       <th>4</th>
       <td>2013-01-05</td>
       <td>0</td>
+      <td>267.873244</td>
     </tr>
   </tbody>
 </table>
@@ -626,7 +639,7 @@ monthly_transactions.head()
 
 ```python
 continuous_date = pd.DataFrame(pd.date_range(start='1/1/2013', end='15/08/2017'), columns=['date'])
-oil_transactions = continuous_date.merge(monthly_transactions, how='left', on='date')
+oil_transactions = continuous_date.merge(monthly_transactions_sales, how='left', on='date')
 oil_transactions = oil_transactions.merge(oil_data, how='left', on='date')
 ```
 
@@ -660,6 +673,7 @@ oil_transactions.head()
       <th></th>
       <th>date</th>
       <th>onpromotion</th>
+      <th>sales</th>
       <th>dcoilwtico</th>
       <th>dcoilwtico_interpolate</th>
     </tr>
@@ -669,6 +683,7 @@ oil_transactions.head()
       <th>0</th>
       <td>2013-01-01</td>
       <td>0.0</td>
+      <td>1.409438</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -676,6 +691,7 @@ oil_transactions.head()
       <th>1</th>
       <td>2013-01-02</td>
       <td>0.0</td>
+      <td>278.390807</td>
       <td>93.14</td>
       <td>93.140000</td>
     </tr>
@@ -683,6 +699,7 @@ oil_transactions.head()
       <th>2</th>
       <td>2013-01-03</td>
       <td>0.0</td>
+      <td>202.840197</td>
       <td>92.97</td>
       <td>92.970000</td>
     </tr>
@@ -690,6 +707,7 @@ oil_transactions.head()
       <th>3</th>
       <td>2013-01-04</td>
       <td>0.0</td>
+      <td>198.911154</td>
       <td>93.12</td>
       <td>93.120000</td>
     </tr>
@@ -697,6 +715,7 @@ oil_transactions.head()
       <th>4</th>
       <td>2013-01-05</td>
       <td>0.0</td>
+      <td>267.873244</td>
       <td>NaN</td>
       <td>93.146667</td>
     </tr>
@@ -718,240 +737,55 @@ plt.show()
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_30_0.png)
+![png](promotion_analysis_files/promotion_analysis_31_0.png)
 
 
 
 ```python
+# measuring the cross correlation between oil price and sales
 import statsmodels.tsa.stattools as smt
-x = oil_transactions['onpromotion'].interpolate()[1:]
+x = oil_transactions['sales'].interpolate()[1:]
 y = oil_transactions['dcoilwtico_interpolate'].interpolate()[1:]
 
-z = smt.ccf(x, y)
-plt.stem(range(-len(z)//2, len(z)//2), z)
-```
+# to conduct ccf, x and y have to be stationary
+# stationarity for x
+n_adf = pmd.arima.ndiffs(x, test="adf")
+n_kpss = pmd.arima.ndiffs(x, test="kpss")
+n_diff = max(n_adf, n_kpss)  
+x_diff = x.diff(n_diff)[1:]
 
-    /opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:6: UserWarning: In Matplotlib 3.3 individual lines on a stem plot will be added as a LineCollection instead of individual lines. This significantly improves the performance of a stem plot. To remove this warning and switch to the new behaviour, set the "use_line_collection" keyword argument to True.
-      
+# stationarity for y
+n_adf = pmd.arima.ndiffs(y, test="adf")
+n_kpss = pmd.arima.ndiffs(y, test="kpss")
+n_diff = max(n_adf, n_kpss)  
+y_diff = y.diff(n_diff)[1:]
 
-
-
-
-
-    <StemContainer object of 3 artists>
-
-
-
-
-![png](promotion_analysis_files/promotion_analysis_31_2.png)
-
-
-## 5. Holidays and promotions
-
-#### Number of promotions holiday vs no holiday
-
-
-```python
-no_holiday = pd.read_csv('train_wo_holiday.csv')
-no_holiday.date = pd.to_datetime(no_holiday.date)
-no_holiday = no_holiday[['date', 'onpromotion']].groupby('date').aggregate('sum').reset_index()
+# backwards = smt.ccf(y_diff, x_diff, adjusted=False)[::-1]
+forwards = smt.ccf(x_diff, y_diff, adjusted=False)
+# ccf_output = np.r_[backwards[:-1], forwards]
+plt.figure(figsize=(18, 5))
+plt.stem(range(0, len(forwards)), forwards)
+plt.xlabel('Lag')
+plt.ylabel('ACF')
+# 95% UCL / LCL
+plt.axhline(-1.96/np.sqrt(len(x)), color='k', ls='--') 
+plt.axhline(1.96/np.sqrt(len(x)), color='k', ls='--');
 ```
 
 
-```python
-holiday_df = continuous_date.merge(monthly_transactions, how='left', on='date')
-holiday_df = holiday_df.merge(no_holiday, how='left', on='date', suffixes = ('_wholiday', '_noholiday'))
-holiday_df.onpromotion_wholiday = holiday_df.onpromotion_wholiday.astype('float')
-holiday_df.head()
-```
+![png](promotion_analysis_files/promotion_analysis_32_0.png)
 
 
+The result shows us that many lags near lag 0 are significant/have moderately strong correlation, and this correlation eases off as we move further away. This indicates that the oil prices at small lags correlate with sales. More specifically, it suggests that the oil prices affect sales of certain days later, which makes sense since oil prices affect how people buy and sell.
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>date</th>
-      <th>onpromotion_wholiday</th>
-      <th>onpromotion_noholiday</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2013-01-01</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2013-01-02</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2013-01-03</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2013-01-04</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2013-01-05</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-fig, ax = plt.subplots(figsize = (20, 5))
-holiday_df.plot(ax = ax, x = 'date', y = 'onpromotion_wholiday',  kind = 'line')
-holiday_df.plot(ax = ax, x = 'date', y = 'onpromotion_noholiday',  kind = 'line')
-plt.show()
-```
-
-
-![png](promotion_analysis_files/promotion_analysis_36_0.png)
-
-
-#### Holiday type
-
-
-```python
-holidays = pd.read_csv('holidays_events.csv')
-holidays.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>date</th>
-      <th>type</th>
-      <th>locale</th>
-      <th>locale_name</th>
-      <th>description</th>
-      <th>transferred</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2012-03-02</td>
-      <td>Holiday</td>
-      <td>Local</td>
-      <td>Manta</td>
-      <td>Fundacion de Manta</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2012-04-01</td>
-      <td>Holiday</td>
-      <td>Regional</td>
-      <td>Cotopaxi</td>
-      <td>Provincializacion de Cotopaxi</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2012-04-12</td>
-      <td>Holiday</td>
-      <td>Local</td>
-      <td>Cuenca</td>
-      <td>Fundacion de Cuenca</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2012-04-14</td>
-      <td>Holiday</td>
-      <td>Local</td>
-      <td>Libertad</td>
-      <td>Cantonizacion de Libertad</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2012-04-21</td>
-      <td>Holiday</td>
-      <td>Local</td>
-      <td>Riobamba</td>
-      <td>Cantonizacion de Riobamba</td>
-      <td>False</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-holidays.locale.value_counts()
-```
-
-
-
-
-    National    174
-    Local       152
-    Regional     24
-    Name: locale, dtype: int64
-
-
-
-## 6. Are promotions effective? <a class="anchor" id="6-are-promotions-effective"></a>
+## 5. Are promotions effective? <a class="anchor" id="6-are-promotions-effective"></a>
 In order to examine the effect of promotion, I narrowed the scope of analysis down to the most granular level possible. This will eliminate the effect of other variables not of interest (different stores, different products, different cities). I started off by filtering out sales of Grocery I from store 1 in Quito to see if the analysis is possible/interesting enough to pursue. Using traditional methods of analyzing time series, I investigated trend and seasonality in the dataset, then I handpicked the parameters for my SARIMAX model accordingly. auto_arima() is used to cross-check the results, making sure the discrepancy in the parameters is not too substantial.
 
 After that, I went on to fit auto_arima to all the combinations of store-city-product and select those combinations that yield significant p-values. These are the cases where promotions have an positive effect on sales.
 
-  * [6.1 Checking the condition](#1-checking-the-conditions)
-  * [6.2 Examine one SARIMAX model](#2-fit-sarimax-model)
-  * [6.3 Promotion on sales of all products](#3-promotion-impact-on-sales-of-all-products)
+  * [5.1 Checking the condition](#1-checking-the-conditions)
+  * [5.2 Examine one SARIMAX model](#2-fit-sarimax-model)
+  * [5.3 Promotion on sales of all products](#3-promotion-impact-on-sales-of-all-products)
 
 (Note for bugs and potential problems)
 
@@ -1054,7 +888,7 @@ main.head()
 
 
 ```python
-# investigate at the highest granularity level: at store 1, grocery I family, in Quito, excluding all the holidays
+# investigate at the highest granularity level: at store 1, grocery I family, in Quito
 granular_df = main[(main.city == 'Quito') & (main.family == 'GROCERY I') & (main.store_nbr == 1)]
 granular_df.reset_index(inplace = True, drop = True)
 print("Total sample size is: ", len(granular_df))
@@ -1087,14 +921,6 @@ continuous_date.bool_promotion = continuous_date.bool_promotion.fillna(0)
 
 continuous_date.isnull().sum()
 ```
-
-    /opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-      
-
 
 
 
@@ -1132,21 +958,17 @@ continuous_date.set_index('date', inplace = True)
 ```python
 # visually check the relationship
 sns.boxplot(continuous_date['bool_promotion'], continuous_date['sales'])
+plt.title("Sales by promotion/no promotion")
+plt.xlabel("Promotion")
+locs, labels = plt.xticks()
+labels = ['No', 'Yes']
+plt.xticks(locs, labels)
+plt.ylabel("Sales (units)")
+plt.show()
 ```
 
-    /opt/anaconda3/lib/python3.7/site-packages/seaborn/_decorators.py:43: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
-      FutureWarning
 
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fa1926eaf10>
-
-
-
-
-![png](promotion_analysis_files/promotion_analysis_48_2.png)
+![png](promotion_analysis_files/promotion_analysis_42_0.png)
 
 
 
@@ -1193,7 +1015,7 @@ plot_stationarity(continuous_date['sales'], 40)
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_49_0.png)
+![png](promotion_analysis_files/promotion_analysis_43_0.png)
 
 
 Mean is not constant and acf plot shows seasonality at lag 7
@@ -1311,7 +1133,6 @@ df_tests
 
 ```python
 # pmdarima also offers methods that suggest the order of first differencing, based on either ADF or the KPSS test
-import pmdarima as pmd
 n_adf = pmd.arima.ndiffs(continuous_date.sales, test="adf")
 n_kpss = pmd.arima.ndiffs(continuous_date.sales, test="kpss")
 n_diffs = {"ADF ndiff":n_adf, "KPSS ndiff":n_kpss}
@@ -1418,7 +1239,7 @@ plot_stationarity(df_diff1, 40)
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_58_0.png)
+![png](promotion_analysis_files/promotion_analysis_52_0.png)
 
 
 However, after the first difference, we can see that the autocorrelation plunges right to big negative values, which implies that we are over-differencing. Hence, I'll just leave it as is. We do notice that there is a significant seasonal component of this time series, which we are going to handle next.
@@ -1503,7 +1324,7 @@ plot_stationarity(seasonal_diff, 40)
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_62_0.png)
+![png](promotion_analysis_files/promotion_analysis_56_0.png)
 
 
 
@@ -1514,7 +1335,7 @@ autocorrelation_plot(seasonal_diff.tolist());
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_63_0.png)
+![png](promotion_analysis_files/promotion_analysis_57_0.png)
 
 
 ### 2. Fit SARIMAX model
@@ -1527,8 +1348,6 @@ For the seasonal order, we used seasonal differencing for the dataset, so D = 1,
 
 
 ```python
-from statsmodels.tsa.statespace.sarimax import SARIMAX
-
 model = SARIMAX(continuous_date.sales, exog=continuous_date.bool_promotion, order=(1,0,2), seasonal_order=(1,1,1,7), enforce_invertibility=False, enforce_stationarity=False).fit(max_iter=50, method='powell')
 print(model.summary())
 ```
@@ -1581,7 +1400,7 @@ plt.show()
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_67_0.png)
+![png](promotion_analysis_files/promotion_analysis_61_0.png)
 
 
 
@@ -1612,16 +1431,18 @@ plt.show()
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_69_0.png)
+![png](promotion_analysis_files/promotion_analysis_63_0.png)
 
 
-The model performs pretty good.
+The model performs pretty well in the diagnostics plot as well as when we use it to predict the sales of this period. Since our main goal is to get the coefficients of the model and analyze their statistical significance, this model can give us a pretty good and accurate estimates. Through this I learned that the patterns in sales here are "modelable" and I will proceed to carry out the same process for all the combinations and summarize their performance.
 
 ### 3. Promotion impact on sales of all products
 
 
 ```python
 import pmdarima as pm
+from kats.detectors.seasonality import FFTDetector
+
 def granularize(df):
     """
     Purpose: Takes in the filtered, aggregated data and carry out pre-processing steps including: create a 
@@ -1684,25 +1505,46 @@ def create_subset(df, family = None, store_nbr = None, city=None):
     
     return granularize(df_new)
 
-def fit_sarimax(df, m=1, seasonal=True):
+def fit_sarimax(df):
     """
     Purpose: Fit the sarimax model
 
-    Parameters: df—the fully processed dataframe; m—the seasonal period; seasonal–whether this subset of data has seasonality or not
+    Parameters: df—the fully processed dataframe; seasonal–whether this subset of data has seasonality or not
     
     Returns: The model of type pdarima.ARIMA
 
     Note: 
 
     """
+    
+    # creating a temp df to detect the seasonality period
+    temp_df = df.reset_index()
+    temp_df = temp_df[['date', 'sales']]
+    temp_df = temp_df.rename(columns={"date": "time", "sales": "value"})
+    ts = TimeSeriesData(temp_df)
+    fft_detector = FFTDetector(ts)
+    d = fft_detector.detector() 
+    if d['seasonality_presence'] == False:
+        m = 1
+    elif round(min(d['seasonalities'])) > 30: # detect at most monthly pattern, discard the rest as non-seasonal (TIME + data size)
+        m = 1
+    else:
+        m = round(min(d['seasonalities']))
+    
+    if m == 1:
+        seasonal = False
+    else:
+        seasonal = True
+    print(m)
     sxmodel = pm.auto_arima(df[['sales']], exogenous=df[['bool_promotion']],
                             start_p=1, start_q=1,
                             test='adf',
-                            max_p=3, max_q=3, m=m,
-                            start_P=0, start_Q=0, seasonal=seasonal, trace=False,
-                            error_action='ignore',  
-                            suppress_warnings=True, 
-                            random=True, n_iter=20, stepwise=True, method='powell')
+                            max_p=2, max_q=2, m=m,
+                            start_P=0, start_Q=0, seasonal=seasonal, trace=5,
+                            # error_action='ignore',  
+                            # suppress_warnings=True, 
+                            stepwise=True, random_state = 0)
+    print("Doneeee")
     return sxmodel
 ```
 
@@ -1716,34 +1558,64 @@ def fit_sarimax(df, m=1, seasonal=True):
 
 
 # writing all the combinations to a file
-# from itertools import product
+from itertools import product
 
-# file_object = open('all_combinations.txt', 'a')
+file_object = open('all_combinations.txt', 'a')
 
-# megalist =[list(np.unique(main['city'])), list(np.unique(main['family'])), list(np.unique(main['store_nbr']))]
-# # megalist 
-# combinations = list()
-# for i in list(product(*megalist)):
-#     if len(main[(main.city == i[0]) & (main.family == i[1]) & (main.store_nbr == i[2])]) > 0:
-#         combinations.append(i)
-#         # write output to a file
-#         with open("all_combinations.txt", "a+") as file_object:
-#             # Move read cursor to the start of file.
-#             file_object.seek(0)
-#             # If file is not empty then append '\n'
-#             data = file_object.read(100)
-#             if len(data) > 0 :
-#                 file_object.write("\n")
-#             # Append text at the end of file
-#             file_object.write(str(i))
+megalist =[list(np.unique(main['city'])), list(np.unique(main['family'])), list(np.unique(main['store_nbr']))]
+# megalist 
+combinations = list()
+for i in list(product(*megalist)):
+    if len(main[(main.city == i[0]) & (main.family == i[1]) & (main.store_nbr == i[2])]) > 0:
+        combinations.append(i)
+        # write output to a file
+        with open("all_combinations.txt", "a+") as file_object:
+            # Move read cursor to the start of file.
+            file_object.seek(0)
+            # If file is not empty then append '\n'
+            data = file_object.read(100)
+            if len(data) > 0 :
+                file_object.write("\n")
+            # Append text at the end of file
+            file_object.write(str(i))
         
+```
+
+_The current bug: All the bad records don't get filtered out after one run (the number of combinations is different everytime I rerun the code-if it successfully filters out the combinations that don't fit the conditions then the length should stay the same). Don't know what's wrong in my code for now...._
+
+
+```python
+# remove the combinations that don't exist in the main dataset
+for _ in range(4):
+    for i in combinations:
+        h = main[(main.city == i[0]) & (main.family == i[1]) & (main.store_nbr == i[2])]
+        if (len(h[h.sales != 0]) == 0) or (len(h[h.onpromotion != 0]) == 0):
+            combinations.remove(i)
 ```
 
 
 ```python
+##### write the filtered list of combinations into a file
+# for i in combinations:
+#     with open("all_combinations2.txt", "a+") as file_object:
+#         # Move read cursor to the start of file.
+#         file_object.seek(0)
+#         # If file is not empty then append '\n'
+#         data = file_object.read(100)
+#         if len(data) > 0 :
+#             file_object.write("\n")
+#         # Append text at the end of file
+#         file_object.write(str(i))
+
+```
+
+
+```python
+#############################################
 # read the list of combinations in from file
+#############################################
 combinations = list()
-file_text = open('all_combinations.txt', "r")
+file_text = open('all_combinations2.txt', "r")
 
 while True: # read till EOF
     file_line = file_text.readline()
@@ -1759,71 +1631,9 @@ file_text.close()
     End Of File
 
 
-_**************Below is me trying to remove the combinations that don't exist in the main dataset, and the combinations that are trivial (aka the combinations that don't have any promotions at all during the examined period). The current bug: All the bad records don't get filtered out after one run (the number of combinations is different everytime I rerun the code-if it successfully filters out the combinations that don't fit the conditions then the length should stay the same). Don't know what's wrong in my code for now...._
-
 
 ```python
-# for i in range(3):
-for i in combinations:
-    h = main[(main.city == i[0]) & (main.family == i[1]) & (main.store_nbr == i[2])]
-    if (len(h[h.sales != 0]) == 0) | (len(h[h.onpromotion != 0]) == 0):
-        combinations.remove(i)
-```
-
-
-```python
-len(combinations)
-```
-
-
-
-
-    1649
-
-
-
-
-```python
-for i in combinations:
-    h = main[(main.city == i[0]) & (main.family == i[1]) & (main.store_nbr == i[2])]
-    if (len(h[h.sales != 0]) == 0) | (len(h[h.onpromotion != 0]) == 0):
-        combinations.remove(i)
-```
-
-
-```python
-len(combinations)
-```
-
-
-
-
-    1609
-
-
-
-
-```python
-for i in combinations:
-    h = main[(main.city == i[0]) & (main.family == i[1]) & (main.store_nbr == i[2])]
-    if (len(h[h.sales != 0]) == 0) | (len(h[h.onpromotion != 0]) == 0):
-        combinations.remove(i)
-len(combinations)
-```
-
-
-
-
-    1601
-
-
-
-
-```python
-for i in combinations:
-    h = main[(main.city == i[0]) & (main.family == i[1]) & (main.store_nbr == i[2])]
-    if (len(h[h.sales != 0]) == 0) | (len(h[h.onpromotion != 0]) == 0):
-        combinations.remove(i)
+# the number of combinations remains after removing 
 len(combinations)
 ```
 
@@ -1837,57 +1647,910 @@ len(combinations)
 
 ```python
 # fitting the sarimax model for each of the combinations, store the resulting p-values and models. 
-# also writing out the progress to a file
+# also writing out the progress to a file to keep track
 
-import warnings
-warnings.filterwarnings("ignore")
-pos_promotion_comb = list()
-pos_promotion_md = list()
+significant_comb = list()
 
-for num, i in enumerate(combinations):
-    if num % 50 == 0: # write to the file after every 50 model fits
-        with open("progress.txt", "a+") as file_object:
-            # Move read cursor to the start of file.
-            file_object.seek(0)
-            # If file is not empty then append '\n'
-            data = file_object.read(100)
-            if len(data) > 0 :
-                file_object.write("\n")
-            # Append text at the end of file
-            file_object.write("Combination number: ")
-            file_object.write(str(num))
-        
-    temp_df = create_subset(main, family=i[1], city=i[0], store_nbr=i[2])
-    try:
-        md = fit_sarimax(temp_df)
-        if md.pvalues()['bool_promotion'] <= 0.05:
-            pos_promotion_comb.append(i)
-            pos_promotion_md.append(md)
-    except:
-        pass
+
+with open("progress.txt", "a+") as file_object:
+    for num, i in enumerate(list(combinations[:1])):
+
+        # if num % 10 == 0: # write to the file after every 50 model fits
+        # Move read cursor to the start of file.
+        file_object.seek(0)
+        # If file is not empty then append '\n'
+        data = file_object.read(100)
+        if len(data) > 0 :
+            file_object.write("\n")
+        # Append text at the end of file
+        file_object.write("Combination: ")
+        file_object.write(str(i))
+        temp_df = create_subset(main, family=i[1], city=i[0], store_nbr=i[2])
+
+        try:
+            md = fit_sarimax(temp_df)
+            if md.pvalues()['bool_promotion'] <= 0.05:
+                significant_comb.append(i)
+            
+            file_object.write("; orders: ")
+            file_object.write(str(md.get_params()['order']))
+            file_object.write("|")
+            file_object.write(str(md.get_params()['seasonal_order']))
+        except Exception as e: 
+            print("Error at {}!".format(i))
+            print(e)
+            pass
 ```
 
 
 ```python
 # how many models yield significant result?
-len(pos_promotion_comb)
+len(significant_comb) 
 ```
 
 
 
 
-    728
+    1155
 
 
 
 
 ```python
-fig, axes = plt.subplots(1, 5, figsize=(18, 5))
-for num, i in enumerate(pos_promotion_comb[:5]):
-    temp_df = create_subset(main, family=i[1], city=i[0], store_nbr=i[2])
-    sns.boxplot(temp_df['bool_promotion'], temp_df['sales'], ax = axes[num])
+# save the resulting significant combinations to a file
+textfile = open("all_results.txt", "w")
+for element in significant_comb:
+    textfile.write(str(element) + "\n")
+textfile.close()
+```
+
+### 4. Analysis of the results
+
+#### Which combinations stood out? - Analysis of the statistically significant combinations
+
+
+```python
+# read in the result combinations
+significant_comb = list()
+file_text = open('all_results.txt', "r")
+
+while True: # read till EOF
+    file_line = file_text.readline()
+    if not file_line:
+        print("End Of File")
+        break
+    if file_line != "nan\n":
+        res = eval(file_line)
+        significant_comb.append(res)
+
+file_text.close()
+```
+
+    End Of File
+
+
+
+```python
+significant_df = pd.DataFrame(significant_comb, columns=['cities', 'products', 'store_num'])
+all_combination_df = pd.DataFrame(combinations, columns=['cities', 'products', 'store_num'])
+percent = significant_df['cities'].value_counts()/all_combination_df['cities'].value_counts()
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_84_0.png)
+```python
+fig, ax = plt.subplots(1, 2, figsize=(18, 6))
+significant_df['cities'].value_counts().plot(kind='barh', ax = ax[0])
+ax[0].set_title("Number of significant combinations by Cities")
+ax[0].set_xlabel("Number of significant combinations")
+ax[0].set_ylabel("Cities")
 
+percent.sort_values(ascending=False).plot(kind='barh', ax = ax[1])
+ax[1].set_title("Percent of significant combinations by Cities")
+ax[1].set_xlabel("Percent of significant combinations")
+ax[1].set_ylabel("Cities")
+plt.tight_layout(2)
+plt.show()
+```
+
+
+![png](promotion_analysis_files/promotion_analysis_80_0.png)
+
+
+Overall, the analysis of the significance of promotions here largely agree with the visualization regarding cities vs transactions above. Playas, Manta, El Carmen are among the top cities that have effective promotions. It might or might not be attributed to a small number of very large promotions that they showed to have. Meanwhile, cities like Daule and Salinas shows a decent upward trend, and they are also among the top cities on this chart. Cities that show more of a downward trend like Riobamba and Loja are among the least promotion-effective cities. 
+
+
+```python
+percent_prod = (significant_df['products'].value_counts()/all_combination_df['products'].value_counts()).dropna().sort_values(ascending=False)
+
+fig, ax = plt.subplots(1, 2, figsize=(18, 6))
+significant_df[significant_df.cities == 'Quito']['products'].value_counts()[np.r_[0:8, -8:0]].plot(kind='barh', color = ['#003f5c'] *8 + ['#ffa600']*8, ax = ax[0])
+ax[0].set_title("8 Top and Bottom-Selling products when there is promotion")
+ax[0].set_xlabel("Count of cases with increased sales")
+
+percent_prod[np.r_[0:8, -8:0]].plot(kind='barh', ax = ax[1], color = ['#003f5c'] *8 + ['#ffa600']*8)
+ax[1].set_title("Percent of 8 Top and Bottom-Selling products when there is promotion")
+ax[1].set_xlabel("Percent of significant combinations")
+plt.tight_layout(2)
+plt.show()
+```
+
+
+![png](promotion_analysis_files/promotion_analysis_82_0.png)
+
+
+
+```python
+percent_store = (significant_df['store_num'].value_counts()/all_combination_df['store_num'].value_counts()).dropna().sort_values(ascending=False)
+plt.figure(figsize=(10, 6))
+plt.title("8 Top and Bottom-Selling stores when there is promotion")
+plt.xlabel("Store number")
+plt.ylabel("Percent of significant combinations")
+percent_store[percent_store.index[np.r_[0:8, -8:0]]].plot(kind='bar', color = ['#003f5c'] *8 + ['#ffa600']*8);
+```
+
+
+![png](promotion_analysis_files/promotion_analysis_83_0.png)
+
+
+#### How much does sales increase? - Analysis of the coefficients of the models
+
+
+```python
+# retrieve the orders
+arima_models = list()
+seasonal_models = list()
+intercept = list()
+file_text = open('progress.txt', "r")
+while True: # read till EOF
+    file_line = file_text.readline()
+    if not file_line:
+        print("End Of File")
+        break
+    orders = file_line.split(": ")[-1]
+    orders = orders.strip().split("|")
+    arima_models.append(eval(orders[0]))
+    seasonal_models.append(eval(orders[1]))
+    intercept.append(orders[2])
+
+file_text.close()
+```
+
+    End Of File
+
+
+
+```python
+#merge with the combinations
+all_combination_df['seasonal_orders'] = seasonal_models
+all_combination_df['arima_orders'] = arima_models
+all_combination_df['intercept'] = intercept
+significant_df = significant_df.merge(all_combination_df, how = 'left', on = ['store_num', 'cities', 'products'])
+significant_df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cities</th>
+      <th>products</th>
+      <th>store_num</th>
+      <th>seasonal_orders</th>
+      <th>arima_orders</th>
+      <th>intercept</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ambato</td>
+      <td>AUTOMOTIVE</td>
+      <td>50</td>
+      <td>(2, 0, 0, 7)</td>
+      <td>(2, 0, 0)</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ambato</td>
+      <td>BEVERAGES</td>
+      <td>23</td>
+      <td>(1, 0, 0, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ambato</td>
+      <td>BEAUTY</td>
+      <td>50</td>
+      <td>(2, 0, 1, 7)</td>
+      <td>(1, 0, 1)</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ambato</td>
+      <td>BEAUTY</td>
+      <td>23</td>
+      <td>(2, 0, 1, 7)</td>
+      <td>(1, 0, 1)</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Ambato</td>
+      <td>BEVERAGES</td>
+      <td>50</td>
+      <td>(1, 0, 2, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+# retrain models to retrieve the coefficients
+coefs = list()
+for i in range(len(significant_df)):
+    c = significant_df.iloc[i]
+    temp = create_subset(main, family = c['products'], city = c['cities'], store_nbr = c['store_num'])
+    if c['intercept'] == "T":
+        model = SARIMAX(temp.sales, exog=temp.bool_promotion, order=c['arima_orders'], seasonal_order=c['seasonal_orders'], trend='c', enforce_stationarity=False).fit(max_iter=50)
+    else:
+        model = SARIMAX(temp.sales, exog=temp.bool_promotion, order=c['arima_orders'], seasonal_order=c['seasonal_orders'], enforce_stationarity=False).fit(max_iter=50)
+    coefs.append(model.params['bool_promotion'])
+```
+
+
+```python
+significant_df['promo_coefs'] = coefs 
+```
+
+
+```python
+# investigate the distribution of the coefficients
+print(significant_df['promo_coefs'].describe())
+print("Number of promotion decreasing sales: ", sum(significant_df['promo_coefs'] <= 0))
+```
+
+    count     1155.000000
+    mean       421.404119
+    std       1278.887059
+    min       -104.483301
+    25%          3.413362
+    50%         17.941188
+    75%        154.324585
+    max      10800.397502
+    Name: promo_coefs, dtype: float64
+    Number of promotion decreasing sales:  24
+
+
+
+```python
+# examine the products where promotions appear to drive down sales
+significant_df[significant_df.promo_coefs < 0]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cities</th>
+      <th>products</th>
+      <th>store_num</th>
+      <th>seasonal_orders</th>
+      <th>arima_orders</th>
+      <th>intercept</th>
+      <th>promo_coefs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>57</th>
+      <td>Babahoyo</td>
+      <td>PREPARED FOODS</td>
+      <td>31</td>
+      <td>(0, 0, 0, 0)</td>
+      <td>(1, 0, 4)</td>
+      <td>T</td>
+      <td>-4.121328</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Cuenca</td>
+      <td>DAIRY</td>
+      <td>37</td>
+      <td>(1, 0, 0, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+      <td>-49.097254</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>Cuenca</td>
+      <td>EGGS</td>
+      <td>42</td>
+      <td>(0, 0, 0, 0)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+      <td>-2.951847</td>
+    </tr>
+    <tr>
+      <th>165</th>
+      <td>Daule</td>
+      <td>MEATS</td>
+      <td>27</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(2, 0, 1)</td>
+      <td>T</td>
+      <td>-37.971939</td>
+    </tr>
+    <tr>
+      <th>224</th>
+      <td>Guaranda</td>
+      <td>DELI</td>
+      <td>19</td>
+      <td>(1, 0, 0, 7)</td>
+      <td>(3, 0, 0)</td>
+      <td>T</td>
+      <td>-14.203077</td>
+    </tr>
+    <tr>
+      <th>225</th>
+      <td>Guaranda</td>
+      <td>GROCERY II</td>
+      <td>19</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(2, 0, 0)</td>
+      <td>T</td>
+      <td>-0.377927</td>
+    </tr>
+    <tr>
+      <th>345</th>
+      <td>Guayaquil</td>
+      <td>MEATS</td>
+      <td>28</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(0, 0, 0)</td>
+      <td>F</td>
+      <td>-18.457109</td>
+    </tr>
+    <tr>
+      <th>433</th>
+      <td>Latacunga</td>
+      <td>DELI</td>
+      <td>13</td>
+      <td>(0, 0, 0, 0)</td>
+      <td>(5, 0, 0)</td>
+      <td>T</td>
+      <td>-0.804859</td>
+    </tr>
+    <tr>
+      <th>448</th>
+      <td>Latacunga</td>
+      <td>MEATS</td>
+      <td>13</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(1, 0, 1)</td>
+      <td>T</td>
+      <td>-4.860549</td>
+    </tr>
+    <tr>
+      <th>467</th>
+      <td>Libertad</td>
+      <td>DELI</td>
+      <td>36</td>
+      <td>(2, 0, 0, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+      <td>-11.184018</td>
+    </tr>
+    <tr>
+      <th>527</th>
+      <td>Machala</td>
+      <td>PERSONAL CARE</td>
+      <td>40</td>
+      <td>(2, 0, 0, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+      <td>-0.045638</td>
+    </tr>
+    <tr>
+      <th>574</th>
+      <td>Manta</td>
+      <td>PET SUPPLIES</td>
+      <td>52</td>
+      <td>(1, 0, 1, 3)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+      <td>-1.354049</td>
+    </tr>
+    <tr>
+      <th>723</th>
+      <td>Quito</td>
+      <td>CLEANING</td>
+      <td>3</td>
+      <td>(0, 0, 1, 7)</td>
+      <td>(0, 0, 1)</td>
+      <td>T</td>
+      <td>-4.940221</td>
+    </tr>
+    <tr>
+      <th>740</th>
+      <td>Quito</td>
+      <td>DAIRY</td>
+      <td>3</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(0, 0, 0)</td>
+      <td>F</td>
+      <td>-104.483301</td>
+    </tr>
+    <tr>
+      <th>755</th>
+      <td>Quito</td>
+      <td>DELI</td>
+      <td>1</td>
+      <td>(1, 0, 0, 7)</td>
+      <td>(1, 0, 1)</td>
+      <td>T</td>
+      <td>-5.772120</td>
+    </tr>
+    <tr>
+      <th>770</th>
+      <td>Quito</td>
+      <td>EGGS</td>
+      <td>2</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(0, 0, 0)</td>
+      <td>T</td>
+      <td>-1.032770</td>
+    </tr>
+    <tr>
+      <th>772</th>
+      <td>Quito</td>
+      <td>EGGS</td>
+      <td>6</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(0, 0, 0)</td>
+      <td>T</td>
+      <td>-4.586273</td>
+    </tr>
+    <tr>
+      <th>821</th>
+      <td>Quito</td>
+      <td>GROCERY II</td>
+      <td>48</td>
+      <td>(1, 0, 2, 7)</td>
+      <td>(2, 0, 1)</td>
+      <td>T</td>
+      <td>-7.129332</td>
+    </tr>
+    <tr>
+      <th>918</th>
+      <td>Quito</td>
+      <td>MEATS</td>
+      <td>1</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(0, 0, 0)</td>
+      <td>F</td>
+      <td>-34.378843</td>
+    </tr>
+    <tr>
+      <th>929</th>
+      <td>Quito</td>
+      <td>MEATS</td>
+      <td>44</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(2, 0, 0)</td>
+      <td>T</td>
+      <td>-80.246005</td>
+    </tr>
+    <tr>
+      <th>978</th>
+      <td>Quito</td>
+      <td>POULTRY</td>
+      <td>17</td>
+      <td>(1, 0, 2, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+      <td>-3.607940</td>
+    </tr>
+    <tr>
+      <th>1051</th>
+      <td>Riobamba</td>
+      <td>BREAD/BAKERY</td>
+      <td>14</td>
+      <td>(1, 0, 0, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+      <td>-7.473650</td>
+    </tr>
+    <tr>
+      <th>1131</th>
+      <td>Santo Domingo</td>
+      <td>MEATS</td>
+      <td>5</td>
+      <td>(2, 0, 1, 7)</td>
+      <td>(2, 0, 0)</td>
+      <td>T</td>
+      <td>-27.818218</td>
+    </tr>
+    <tr>
+      <th>1147</th>
+      <td>Santo Domingo</td>
+      <td>PREPARED FOODS</td>
+      <td>21</td>
+      <td>(1, 0, 2, 7)</td>
+      <td>(1, 1, 1)</td>
+      <td>T</td>
+      <td>-0.144202</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+plt.title("Histogram of how many units of sales increase when there \n is promotion across all combinations")
+plt.xlabel("Coefficients - Change in unit of sales")
+plt.hist(np.log(significant_df['promo_coefs']), bins = 50);
+```
+
+
+![png](promotion_analysis_files/promotion_analysis_91_0.png)
+
+
+
+```python
+# products that got a big increaase in sales when they are promoted
+significant_df[significant_df.promo_coefs > 5000]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cities</th>
+      <th>products</th>
+      <th>store_num</th>
+      <th>seasonal_orders</th>
+      <th>arima_orders</th>
+      <th>intercept</th>
+      <th>promo_coefs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>Ambato</td>
+      <td>GROCERY I</td>
+      <td>50</td>
+      <td>(2, 0, 1, 7)</td>
+      <td>(2, 0, 0)</td>
+      <td>T</td>
+      <td>6456.731023</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Cayambe</td>
+      <td>GROCERY I</td>
+      <td>11</td>
+      <td>(2, 0, 1, 7)</td>
+      <td>(3, 0, 1)</td>
+      <td>T</td>
+      <td>7040.998561</td>
+    </tr>
+    <tr>
+      <th>304</th>
+      <td>Guayaquil</td>
+      <td>GROCERY I</td>
+      <td>51</td>
+      <td>(0, 0, 0, 0)</td>
+      <td>(2, 0, 1)</td>
+      <td>T</td>
+      <td>5108.058295</td>
+    </tr>
+    <tr>
+      <th>381</th>
+      <td>Guayaquil</td>
+      <td>PRODUCE</td>
+      <td>51</td>
+      <td>(0, 0, 0, 0)</td>
+      <td>(5, 0, 3)</td>
+      <td>F</td>
+      <td>5606.660148</td>
+    </tr>
+    <tr>
+      <th>554</th>
+      <td>Manta</td>
+      <td>GROCERY I</td>
+      <td>52</td>
+      <td>(0, 0, 0, 0)</td>
+      <td>(1, 0, 1)</td>
+      <td>T</td>
+      <td>6225.871541</td>
+    </tr>
+    <tr>
+      <th>686</th>
+      <td>Quito</td>
+      <td>BEVERAGES</td>
+      <td>3</td>
+      <td>(2, 0, 1, 7)</td>
+      <td>(5, 0, 2)</td>
+      <td>T</td>
+      <td>8340.248982</td>
+    </tr>
+    <tr>
+      <th>697</th>
+      <td>Quito</td>
+      <td>BEVERAGES</td>
+      <td>46</td>
+      <td>(2, 0, 0, 7)</td>
+      <td>(2, 0, 1)</td>
+      <td>T</td>
+      <td>5654.516306</td>
+    </tr>
+    <tr>
+      <th>699</th>
+      <td>Quito</td>
+      <td>BEVERAGES</td>
+      <td>45</td>
+      <td>(1, 0, 2, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+      <td>8534.820025</td>
+    </tr>
+    <tr>
+      <th>700</th>
+      <td>Quito</td>
+      <td>BEVERAGES</td>
+      <td>44</td>
+      <td>(2, 0, 0, 7)</td>
+      <td>(2, 0, 1)</td>
+      <td>T</td>
+      <td>9552.248355</td>
+    </tr>
+    <tr>
+      <th>703</th>
+      <td>Quito</td>
+      <td>BEVERAGES</td>
+      <td>47</td>
+      <td>(0, 0, 0, 0)</td>
+      <td>(1, 0, 1)</td>
+      <td>F</td>
+      <td>8055.779197</td>
+    </tr>
+    <tr>
+      <th>796</th>
+      <td>Quito</td>
+      <td>GROCERY I</td>
+      <td>3</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(2, 0, 0)</td>
+      <td>T</td>
+      <td>8443.444167</td>
+    </tr>
+    <tr>
+      <th>799</th>
+      <td>Quito</td>
+      <td>GROCERY I</td>
+      <td>6</td>
+      <td>(2, 0, 0, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>F</td>
+      <td>5018.767052</td>
+    </tr>
+    <tr>
+      <th>800</th>
+      <td>Quito</td>
+      <td>GROCERY I</td>
+      <td>8</td>
+      <td>(1, 0, 0, 7)</td>
+      <td>(3, 0, 4)</td>
+      <td>F</td>
+      <td>5122.428728</td>
+    </tr>
+    <tr>
+      <th>806</th>
+      <td>Quito</td>
+      <td>GROCERY I</td>
+      <td>45</td>
+      <td>(2, 0, 2, 7)</td>
+      <td>(0, 0, 3)</td>
+      <td>T</td>
+      <td>10800.397502</td>
+    </tr>
+    <tr>
+      <th>807</th>
+      <td>Quito</td>
+      <td>GROCERY I</td>
+      <td>44</td>
+      <td>(2, 0, 0, 7)</td>
+      <td>(3, 0, 2)</td>
+      <td>F</td>
+      <td>10371.945421</td>
+    </tr>
+    <tr>
+      <th>808</th>
+      <td>Quito</td>
+      <td>GROCERY I</td>
+      <td>9</td>
+      <td>(0, 0, 0, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+      <td>6708.441989</td>
+    </tr>
+    <tr>
+      <th>809</th>
+      <td>Quito</td>
+      <td>GROCERY I</td>
+      <td>20</td>
+      <td>(2, 0, 1, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+      <td>5296.532400</td>
+    </tr>
+    <tr>
+      <th>810</th>
+      <td>Quito</td>
+      <td>GROCERY I</td>
+      <td>46</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+      <td>9378.659362</td>
+    </tr>
+    <tr>
+      <th>811</th>
+      <td>Quito</td>
+      <td>GROCERY I</td>
+      <td>49</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(1, 0, 1)</td>
+      <td>T</td>
+      <td>7899.298335</td>
+    </tr>
+    <tr>
+      <th>812</th>
+      <td>Quito</td>
+      <td>GROCERY I</td>
+      <td>47</td>
+      <td>(1, 0, 1, 7)</td>
+      <td>(1, 0, 0)</td>
+      <td>T</td>
+      <td>10207.247656</td>
+    </tr>
+    <tr>
+      <th>813</th>
+      <td>Quito</td>
+      <td>GROCERY I</td>
+      <td>48</td>
+      <td>(2, 0, 1, 7)</td>
+      <td>(1, 0, 1)</td>
+      <td>T</td>
+      <td>8334.066160</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>Quito</td>
+      <td>PRODUCE</td>
+      <td>3</td>
+      <td>(0, 0, 2, 7)</td>
+      <td>(1, 0, 2)</td>
+      <td>T</td>
+      <td>8442.797736</td>
+    </tr>
+    <tr>
+      <th>1014</th>
+      <td>Quito</td>
+      <td>PRODUCE</td>
+      <td>49</td>
+      <td>(0, 0, 0, 0)</td>
+      <td>(4, 0, 3)</td>
+      <td>T</td>
+      <td>8258.172075</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+fig, axes = plt.subplots(5, 5, figsize = (20, 20))
+
+for i, city in enumerate(np.unique(significant_df.cities)):
+    temp = significant_df[significant_df.cities == city]
+    axes[int(i/5)][i%5].hist(np.log(temp['promo_coefs']))
+    axes[int(i/5)][i%5].set_title("{}".format(city))
+    axes[int(i/5)][i%5].set_xlabel("Coefficients - Change in unit of sales\n (log scale)", fontsize = 12)
+    axes[int(i/5)][i%5].set_ylabel("Count")
+
+plt.tight_layout(pad=2)
+plt.suptitle("Histogram of how many units of sales increase when there \n is promotion by City\n", fontsize = 20)
+plt.show()
+```
+
+
+![png](promotion_analysis_files/promotion_analysis_93_0.png)
+
+
+**Remarks**: For most cases, promotion increases sales by at least one unit (the log is positive). Grocery I, beverages and several produce products experience more than 5000 units increase in sales. Cities like Manta, Daule, Santo Domingo and Guaranda have a more even/closer-to-normal distribution of coefficients. Promotions that are more right-skewed, in cities like Ambato, Playas, El Carmen have smaller effects, but as we have analyzed earlier, they come in great quantity (many promotions are effective)
+
+There are also around 20 cases where promotion affects sales negatively. Out of these cases, the most serious ones (decrease sales by 20 units and above) include diary and meat products.
+
+
+```python
+# save the resulting dataframe 
+significant_df.to_csv('significant_results.csv', index = False)
+```
+
+## 6. Conclusion and Next step
+
+More than 70% of the promotions have a positive effect on sales and the majority of them result in a good amount of boost in the units sold of certain products. How promotions affect sales differ by locations and by products. Some products score 100% on sales with the presence of promotions, while some experience a slight decrease. Some cities have more, but smaller-effect promotions and some cities have fewer but larger-effect promotions on sales. 
+
+Some next steps include:
+- We can focus on a select few combinations (maybe regarding locations, products) to further investigate their statistics. It can be retrained and we can examine the fitness of models + use it to predict the next periods.
+- Combine the results in sales with the knowledge of customer demographics and inventories to develop a better promotion strategy for the different products at different locations so as to minimize loss in inventory and increase sales
+- Combine the results with the knowledge of products to see why certain products are affected negatively. Would it be more than just expiration dates?
+- Study why in some cities like Riobamba promotions appear to slow sales compared to other cities. 
+- Can take holidays into consideration. The holiday data currently is hard to model along with other variables so we can dive deeper and analyze a small period of sales where holidays occur and examine how sales changed. 

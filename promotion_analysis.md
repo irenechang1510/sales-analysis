@@ -14,6 +14,8 @@ The write-up of this project is being done along with this notebook: You can acc
   * [5.1 Checking the condition](#1-checking-the-conditions)
   * [5.2 Examine one SARIMAX model](#2-fit-sarimax-model)
   * [5.3 Promotion on sales of all products](#3-promotion-impact-on-sales-of-all-products)
+  * [5.4 Analysis of the results](#4-analysis-of-the-results)
+* [6. Conclusions and next steps](#6-conclusion-and-next-step)
 
 _This project is made possible with the help of my mentors: Chaya, Kyle, Jeremy. Thank you so much!_
 
@@ -778,7 +780,7 @@ plt.axhline(1.96/np.sqrt(len(x)), color='k', ls='--');
 
 The result shows us that many lags near lag 0 are significant/have moderately strong correlation, and this correlation eases off as we move further away. This indicates that the oil prices at small lags correlate with sales. More specifically, it suggests that the oil prices affect sales of certain days later, which makes sense since oil prices affect how people buy and sell.
 
-## 5. Are promotions effective? <a class="anchor" id="6-are-promotions-effective"></a>
+## 5. Are promotions effective? <a class="anchor" id="5-are-promotions-effective"></a>
 In order to examine the effect of promotion, I narrowed the scope of analysis down to the most granular level possible. This will eliminate the effect of other variables not of interest (different stores, different products, different cities). I started off by filtering out sales of Grocery I from store 1 in Quito to see if the analysis is possible/interesting enough to pursue. Using traditional methods of analyzing time series, I investigated trend and seasonality in the dataset, then I handpicked the parameters for my SARIMAX model accordingly. auto_arima() is used to cross-check the results, making sure the discrepancy in the parameters is not too substantial.
 
 After that, I went on to fit auto_arima to all the combinations of store-city-product and select those combinations that yield significant p-values. These are the cases where promotions have an positive effect on sales.
@@ -786,6 +788,7 @@ After that, I went on to fit auto_arima to all the combinations of store-city-pr
   * [5.1 Checking the condition](#1-checking-the-conditions)
   * [5.2 Examine one SARIMAX model](#2-fit-sarimax-model)
   * [5.3 Promotion on sales of all products](#3-promotion-impact-on-sales-of-all-products)
+  * [5.4 Analysis of the results](#4-analysis-of-the-results)
 
 (Note for bugs and potential problems)
 

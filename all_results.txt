@@ -1,0 +1,1597 @@
+('Ambato', 'AUTOMOTIVE', 50)
+('Ambato', 'BEVERAGES', 23)
+('Ambato', 'BEAUTY', 50)
+('Ambato', 'BEAUTY', 23)
+('Ambato', 'BEVERAGES', 50)
+nan
+nan
+('Ambato', 'BREAD/BAKERY', 23)
+nan
+('Ambato', 'CLEANING', 23)
+('Ambato', 'DAIRY', 50)
+('Ambato', 'CLEANING', 50)
+('Ambato', 'DELI', 23)
+('Ambato', 'DAIRY', 23)
+nan
+nan
+('Ambato', 'FROZEN FOODS', 23)
+('Ambato', 'EGGS', 23)
+nan
+('Ambato', 'EGGS', 50)
+('Ambato', 'GROCERY I', 23)
+('Ambato', 'GROCERY II', 50)
+('Ambato', 'HOME AND KITCHEN I', 23)
+nan
+nan
+('Ambato', 'HOME AND KITCHEN II', 50)
+('Ambato', 'HOME AND KITCHEN II', 23)
+('Ambato', 'GROCERY I', 50)
+('Ambato', 'HOME CARE', 50)
+('Ambato', 'HOME CARE', 23)
+nan
+nan
+('Ambato', 'LINGERIE', 23)
+nan
+nan
+('Ambato', 'LIQUOR,WINE,BEER', 23)
+('Ambato', 'LINGERIE', 50)
+('Ambato', 'MEATS', 23)
+('Ambato', 'LIQUOR,WINE,BEER', 50)
+nan
+nan
+nan
+('Ambato', 'PET SUPPLIES', 23)
+('Ambato', 'PERSONAL CARE', 50)
+('Ambato', 'PLAYERS AND ELECTRONICS', 23)
+('Ambato', 'MEATS', 50)
+('Ambato', 'POULTRY', 23)
+('Ambato', 'PET SUPPLIES', 50)
+nan
+nan
+('Ambato', 'PRODUCE', 23)
+('Ambato', 'PREPARED FOODS', 23)
+nan
+('Ambato', 'SCHOOL AND OFFICE SUPPLIES', 23)
+('Ambato', 'PREPARED FOODS', 50)
+('Ambato', 'SEAFOOD', 23)
+nan
+('Ambato', 'SEAFOOD', 50)
+('Ambato', 'PRODUCE', 50)
+('Babahoyo', 'BEVERAGES', 31)
+('Babahoyo', 'AUTOMOTIVE', 31)
+('Babahoyo', 'BEAUTY', 31)
+('Babahoyo', 'BREAD/BAKERY', 31)
+nan
+('Babahoyo', 'DAIRY', 31)
+nan
+('Babahoyo', 'FROZEN FOODS', 31)
+('Babahoyo', 'DELI', 31)
+('Babahoyo', 'GROCERY I', 31)
+('Babahoyo', 'GROCERY II', 31)
+nan
+('Babahoyo', 'CELEBRATION', 31)
+nan
+nan
+('Babahoyo', 'LAWN AND GARDEN', 31)
+('Babahoyo', 'LADIESWEAR', 31)
+('Babahoyo', 'HOME CARE', 31)
+nan
+('Babahoyo', 'HOME AND KITCHEN I', 31)
+('Babahoyo', 'MAGAZINES', 31)
+nan
+('Babahoyo', 'PERSONAL CARE', 31)
+nan
+('Babahoyo', 'PET SUPPLIES', 31)
+('Babahoyo', 'PREPARED FOODS', 31)
+nan
+('Babahoyo', 'SCHOOL AND OFFICE SUPPLIES', 31)
+('Babahoyo', 'POULTRY', 31)
+('Babahoyo', 'PRODUCE', 31)
+nan
+('Cayambe', 'BEVERAGES', 11)
+('Babahoyo', 'SEAFOOD', 31)
+nan
+('Cayambe', 'BEAUTY', 11)
+('Cayambe', 'CLEANING', 11)
+('Cayambe', 'AUTOMOTIVE', 11)
+('Cayambe', 'DAIRY', 11)
+('Cayambe', 'FROZEN FOODS', 11)
+('Cayambe', 'DELI', 11)
+('Cayambe', 'EGGS', 11)
+nan
+('Cayambe', 'GROCERY I', 11)
+('Cayambe', 'HOME AND KITCHEN I', 11)
+nan
+('Cayambe', 'CELEBRATION', 11)
+nan
+('Cayambe', 'LAWN AND GARDEN', 11)
+('Cayambe', 'HOME AND KITCHEN II', 11)
+('Cayambe', 'HOME CARE', 11)
+('Cayambe', 'LIQUOR,WINE,BEER', 11)
+nan
+('Cayambe', 'MEATS', 11)
+('Cayambe', 'MAGAZINES', 11)
+('Cayambe', 'PET SUPPLIES', 11)
+nan
+('Cayambe', 'PREPARED FOODS', 11)
+nan
+('Cayambe', 'PRODUCE', 11)
+nan
+nan
+nan
+nan
+('Cayambe', 'POULTRY', 11)
+('Cayambe', 'SEAFOOD', 11)
+nan
+nan
+('Cuenca', 'BEAUTY', 37)
+('Cuenca', 'BEVERAGES', 37)
+('Cuenca', 'BEVERAGES', 39)
+('Cuenca', 'BEAUTY', 39)
+('Cuenca', 'BEVERAGES', 42)
+('Cuenca', 'BREAD/BAKERY', 37)
+('Cuenca', 'BREAD/BAKERY', 42)
+('Cuenca', 'BREAD/BAKERY', 39)
+('Cuenca', 'BEAUTY', 42)
+('Cuenca', 'CLEANING', 37)
+('Cuenca', 'CELEBRATION', 37)
+nan
+('Cuenca', 'CELEBRATION', 39)
+nan
+('Cuenca', 'DAIRY', 37)
+('Cuenca', 'DAIRY', 39)
+('Cuenca', 'DAIRY', 42)
+('Cuenca', 'CLEANING', 42)
+('Cuenca', 'DELI', 39)
+('Cuenca', 'EGGS', 37)
+('Cuenca', 'DELI', 42)
+nan
+nan
+('Cuenca', 'FROZEN FOODS', 42)
+('Cuenca', 'FROZEN FOODS', 39)
+('Cuenca', 'GROCERY I', 37)
+('Cuenca', 'GROCERY I', 39)
+('Cuenca', 'EGGS', 42)
+('Cuenca', 'GROCERY II', 37)
+('Cuenca', 'DELI', 37)
+nan
+nan
+('Cuenca', 'GROCERY I', 42)
+nan
+('Cuenca', 'HOME AND KITCHEN I', 37)
+('Cuenca', 'HOME AND KITCHEN I', 39)
+('Cuenca', 'GROCERY II', 39)
+nan
+nan
+('Cuenca', 'HOME AND KITCHEN I', 42)
+nan
+('Cuenca', 'HOME AND KITCHEN II', 39)
+('Cuenca', 'HOME CARE', 37)
+('Cuenca', 'HOME CARE', 42)
+('Cuenca', 'HOME CARE', 39)
+nan
+('Cuenca', 'LAWN AND GARDEN', 37)
+('Cuenca', 'LAWN AND GARDEN', 39)
+('Cuenca', 'LINGERIE', 37)
+nan
+('Cuenca', 'LAWN AND GARDEN', 42)
+('Cuenca', 'LINGERIE', 42)
+nan
+('Cuenca', 'LIQUOR,WINE,BEER', 37)
+nan
+('Cuenca', 'LIQUOR,WINE,BEER', 42)
+nan
+('Cuenca', 'LINGERIE', 39)
+('Cuenca', 'MEATS', 37)
+nan
+nan
+nan
+('Cuenca', 'MEATS', 42)
+('Cuenca', 'PET SUPPLIES', 37)
+('Cuenca', 'PET SUPPLIES', 42)
+('Cuenca', 'PLAYERS AND ELECTRONICS', 37)
+('Cuenca', 'PERSONAL CARE', 42)
+('Cuenca', 'POULTRY', 37)
+nan
+('Cuenca', 'POULTRY', 39)
+nan
+('Cuenca', 'PREPARED FOODS', 37)
+('Cuenca', 'PLAYERS AND ELECTRONICS', 42)
+('Cuenca', 'PREPARED FOODS', 39)
+('Cuenca', 'POULTRY', 42)
+('Cuenca', 'PRODUCE', 37)
+('Cuenca', 'PRODUCE', 42)
+('Cuenca', 'SCHOOL AND OFFICE SUPPLIES', 42)
+('Cuenca', 'PREPARED FOODS', 42)
+('Cuenca', 'SCHOOL AND OFFICE SUPPLIES', 39)
+('Cuenca', 'PRODUCE', 39)
+('Cuenca', 'SEAFOOD', 39)
+('Daule', 'AUTOMOTIVE', 27)
+('Daule', 'BEVERAGES', 27)
+('Cuenca', 'SEAFOOD', 42)
+nan
+('Daule', 'BREAD/BAKERY', 27)
+('Daule', 'BEAUTY', 27)
+('Daule', 'CLEANING', 27)
+('Daule', 'DAIRY', 27)
+('Daule', 'DELI', 27)
+('Daule', 'CELEBRATION', 27)
+nan
+('Daule', 'GROCERY I', 27)
+('Daule', 'FROZEN FOODS', 27)
+('Daule', 'HOME AND KITCHEN I', 27)
+('Daule', 'HOME AND KITCHEN II', 27)
+('Daule', 'GROCERY II', 27)
+('Daule', 'HOME CARE', 27)
+nan
+('Daule', 'LINGERIE', 27)
+('Daule', 'LAWN AND GARDEN', 27)
+('Daule', 'LIQUOR,WINE,BEER', 27)
+('Daule', 'PERSONAL CARE', 27)
+('Daule', 'MEATS', 27)
+nan
+nan
+nan
+('Daule', 'POULTRY', 27)
+nan
+nan
+('Daule', 'SCHOOL AND OFFICE SUPPLIES', 27)
+('El Carmen', 'AUTOMOTIVE', 54)
+('El Carmen', 'BABY CARE', 54)
+('Daule', 'SEAFOOD', 27)
+('El Carmen', 'BREAD/BAKERY', 54)
+('Daule', 'PRODUCE', 27)
+('El Carmen', 'BEAUTY', 54)
+nan
+('El Carmen', 'BEVERAGES', 54)
+('El Carmen', 'CELEBRATION', 54)
+nan
+('El Carmen', 'DELI', 54)
+('El Carmen', 'FROZEN FOODS', 54)
+('El Carmen', 'HARDWARE', 54)
+('El Carmen', 'HOME AND KITCHEN I', 54)
+nan
+('El Carmen', 'HOME APPLIANCES', 54)
+nan
+('El Carmen', 'HOME AND KITCHEN II', 54)
+('El Carmen', 'LIQUOR,WINE,BEER', 54)
+('El Carmen', 'GROCERY I', 54)
+('El Carmen', 'LINGERIE', 54)
+('El Carmen', 'HOME CARE', 54)
+('El Carmen', 'PET SUPPLIES', 54)
+('El Carmen', 'PERSONAL CARE', 54)
+('El Carmen', 'MAGAZINES', 54)
+('El Carmen', 'POULTRY', 54)
+nan
+nan
+('El Carmen', 'SCHOOL AND OFFICE SUPPLIES', 54)
+nan
+('El Carmen', 'SEAFOOD', 54)
+('Esmeraldas', 'BEAUTY', 43)
+('El Carmen', 'PRODUCE', 54)
+('Esmeraldas', 'BEVERAGES', 43)
+('Esmeraldas', 'CLEANING', 43)
+nan
+('Esmeraldas', 'CELEBRATION', 43)
+('Esmeraldas', 'DELI', 43)
+('Esmeraldas', 'FROZEN FOODS', 43)
+('Esmeraldas', 'EGGS', 43)
+('Esmeraldas', 'DAIRY', 43)
+('Esmeraldas', 'GROCERY II', 43)
+nan
+('Esmeraldas', 'GROCERY I', 43)
+('Esmeraldas', 'HOME AND KITCHEN I', 43)
+nan
+('Esmeraldas', 'BREAD/BAKERY', 43)
+('Esmeraldas', 'LAWN AND GARDEN', 43)
+nan
+('Esmeraldas', 'MAGAZINES', 43)
+('Esmeraldas', 'MEATS', 43)
+('Esmeraldas', 'LIQUOR,WINE,BEER', 43)
+('Esmeraldas', 'PET SUPPLIES', 43)
+('Esmeraldas', 'HOME CARE', 43)
+nan
+nan
+('Esmeraldas', 'PERSONAL CARE', 43)
+('Esmeraldas', 'HOME AND KITCHEN II', 43)
+('Esmeraldas', 'SCHOOL AND OFFICE SUPPLIES', 43)
+('Esmeraldas', 'PLAYERS AND ELECTRONICS', 43)
+('Esmeraldas', 'SEAFOOD', 43)
+nan
+('Guaranda', 'AUTOMOTIVE', 19)
+('Guaranda', 'BEVERAGES', 19)
+('Guaranda', 'BREAD/BAKERY', 19)
+('Guaranda', 'CELEBRATION', 19)
+('Guaranda', 'BEAUTY', 19)
+('Esmeraldas', 'PRODUCE', 43)
+nan
+('Guaranda', 'FROZEN FOODS', 19)
+('Guaranda', 'CLEANING', 19)
+('Guaranda', 'DELI', 19)
+('Guaranda', 'GROCERY II', 19)
+nan
+('Guaranda', 'HOME AND KITCHEN I', 19)
+('Guaranda', 'GROCERY I', 19)
+('Guaranda', 'EGGS', 19)
+nan
+('Guaranda', 'HOME AND KITCHEN II', 19)
+('Guaranda', 'LIQUOR,WINE,BEER', 19)
+('Guaranda', 'HOME CARE', 19)
+nan
+('Guaranda', 'MAGAZINES', 19)
+('Guaranda', 'PET SUPPLIES', 19)
+('Guaranda', 'PERSONAL CARE', 19)
+nan
+nan
+('Guaranda', 'SCHOOL AND OFFICE SUPPLIES', 19)
+('Guaranda', 'PRODUCE', 19)
+nan
+('Guaranda', 'SEAFOOD', 19)
+('Guaranda', 'POULTRY', 19)
+nan
+nan
+('Guayaquil', 'AUTOMOTIVE', 28)
+('Guayaquil', 'AUTOMOTIVE', 32)
+('Guayaquil', 'AUTOMOTIVE', 29)
+nan
+nan
+('Guayaquil', 'AUTOMOTIVE', 34)
+('Guayaquil', 'AUTOMOTIVE', 51)
+nan
+nan
+('Guayaquil', 'BEAUTY', 24)
+('Guayaquil', 'BEAUTY', 30)
+('Guayaquil', 'BEAUTY', 28)
+('Guayaquil', 'BEAUTY', 32)
+('Guayaquil', 'BEAUTY', 26)
+('Guayaquil', 'BEAUTY', 34)
+('Guayaquil', 'BEAUTY', 29)
+('Guayaquil', 'BEVERAGES', 24)
+('Guayaquil', 'BEVERAGES', 28)
+('Guayaquil', 'BEVERAGES', 29)
+('Guayaquil', 'BEAUTY', 51)
+('Guayaquil', 'BEVERAGES', 26)
+('Guayaquil', 'BEVERAGES', 51)
+nan
+('Guayaquil', 'BEVERAGES', 30)
+('Guayaquil', 'BEVERAGES', 34)
+('Guayaquil', 'BREAD/BAKERY', 24)
+nan
+('Guayaquil', 'BREAD/BAKERY', 28)
+('Guayaquil', 'BREAD/BAKERY', 29)
+('Guayaquil', 'BREAD/BAKERY', 32)
+('Guayaquil', 'BREAD/BAKERY', 51)
+('Guayaquil', 'BREAD/BAKERY', 30)
+('Guayaquil', 'BREAD/BAKERY', 34)
+('Guayaquil', 'CELEBRATION', 26)
+nan
+nan
+nan
+nan
+('Guayaquil', 'CLEANING', 24)
+('Guayaquil', 'CLEANING', 26)
+('Guayaquil', 'CELEBRATION', 34)
+nan
+nan
+nan
+nan
+('Guayaquil', 'CLEANING', 34)
+('Guayaquil', 'CLEANING', 28)
+('Guayaquil', 'CLEANING', 29)
+('Guayaquil', 'DAIRY', 24)
+('Guayaquil', 'CLEANING', 51)
+('Guayaquil', 'DAIRY', 26)
+('Guayaquil', 'DAIRY', 30)
+('Guayaquil', 'DAIRY', 29)
+('Guayaquil', 'DAIRY', 28)
+('Guayaquil', 'DAIRY', 32)
+('Guayaquil', 'DAIRY', 51)
+('Guayaquil', 'DAIRY', 34)
+('Guayaquil', 'DELI', 28)
+('Guayaquil', 'DELI', 24)
+('Guayaquil', 'DELI', 26)
+nan
+('Guayaquil', 'DELI', 32)
+('Guayaquil', 'DELI', 30)
+('Guayaquil', 'DELI', 51)
+('Guayaquil', 'EGGS', 26)
+nan
+('Guayaquil', 'DELI', 29)
+nan
+('Guayaquil', 'EGGS', 24)
+nan
+('Guayaquil', 'EGGS', 30)
+nan
+('Guayaquil', 'FROZEN FOODS', 24)
+('Guayaquil', 'FROZEN FOODS', 28)
+nan
+nan
+nan
+('Guayaquil', 'FROZEN FOODS', 29)
+('Guayaquil', 'FROZEN FOODS', 51)
+('Guayaquil', 'FROZEN FOODS', 34)
+nan
+('Guayaquil', 'GROCERY I', 26)
+('Guayaquil', 'GROCERY I', 30)
+('Guayaquil', 'GROCERY I', 29)
+('Guayaquil', 'GROCERY I', 28)
+('Guayaquil', 'GROCERY I', 32)
+nan
+('Guayaquil', 'GROCERY I', 34)
+('Guayaquil', 'GROCERY II', 26)
+('Guayaquil', 'GROCERY I', 51)
+('Guayaquil', 'GROCERY I', 24)
+nan
+('Guayaquil', 'GROCERY II', 34)
+nan
+('Guayaquil', 'GROCERY II', 30)
+('Guayaquil', 'GROCERY II', 32)
+nan
+('Guayaquil', 'GROCERY II', 29)
+nan
+nan
+('Guayaquil', 'HOME AND KITCHEN I', 24)
+('Guayaquil', 'HOME AND KITCHEN I', 26)
+('Guayaquil', 'HOME AND KITCHEN I', 30)
+('Guayaquil', 'HOME AND KITCHEN I', 29)
+nan
+nan
+('Guayaquil', 'HOME AND KITCHEN I', 51)
+('Guayaquil', 'HOME AND KITCHEN I', 34)
+nan
+('Guayaquil', 'HOME AND KITCHEN I', 32)
+('Guayaquil', 'HOME AND KITCHEN II', 26)
+('Guayaquil', 'HOME AND KITCHEN II', 30)
+('Guayaquil', 'HOME AND KITCHEN II', 34)
+('Guayaquil', 'HOME AND KITCHEN II', 28)
+nan
+('Guayaquil', 'HOME AND KITCHEN II', 51)
+('Guayaquil', 'HOME AND KITCHEN II', 29)
+('Guayaquil', 'HOME AND KITCHEN II', 32)
+nan
+nan
+nan
+nan
+('Guayaquil', 'HOME CARE', 30)
+('Guayaquil', 'HOME CARE', 26)
+('Guayaquil', 'HOME CARE', 28)
+('Guayaquil', 'HOME CARE', 34)
+('Guayaquil', 'HOME CARE', 29)
+('Guayaquil', 'HOME CARE', 51)
+('Guayaquil', 'HOME CARE', 32)
+nan
+('Guayaquil', 'LADIESWEAR', 51)
+('Guayaquil', 'LAWN AND GARDEN', 24)
+nan
+nan
+('Guayaquil', 'LAWN AND GARDEN', 29)
+('Guayaquil', 'LAWN AND GARDEN', 28)
+nan
+('Guayaquil', 'LINGERIE', 24)
+nan
+('Guayaquil', 'LAWN AND GARDEN', 51)
+nan
+nan
+nan
+nan
+('Guayaquil', 'LINGERIE', 32)
+('Guayaquil', 'LINGERIE', 51)
+('Guayaquil', 'LINGERIE', 29)
+('Guayaquil', 'LIQUOR,WINE,BEER', 29)
+('Guayaquil', 'LIQUOR,WINE,BEER', 24)
+nan
+nan
+('Guayaquil', 'LIQUOR,WINE,BEER', 30)
+nan
+('Guayaquil', 'LIQUOR,WINE,BEER', 51)
+nan
+nan
+nan
+('Guayaquil', 'LIQUOR,WINE,BEER', 34)
+('Guayaquil', 'MEATS', 28)
+('Guayaquil', 'MEATS', 24)
+('Guayaquil', 'MAGAZINES', 29)
+('Guayaquil', 'MEATS', 26)
+('Guayaquil', 'MEATS', 32)
+('Guayaquil', 'MEATS', 34)
+nan
+('Guayaquil', 'MEATS', 29)
+nan
+nan
+nan
+nan
+nan
+('Guayaquil', 'PERSONAL CARE', 29)
+('Guayaquil', 'PET SUPPLIES', 24)
+nan
+nan
+('Guayaquil', 'PET SUPPLIES', 26)
+('Guayaquil', 'PET SUPPLIES', 29)
+nan
+('Guayaquil', 'PET SUPPLIES', 30)
+('Guayaquil', 'PET SUPPLIES', 32)
+('Guayaquil', 'PET SUPPLIES', 34)
+('Guayaquil', 'PLAYERS AND ELECTRONICS', 26)
+nan
+('Guayaquil', 'PET SUPPLIES', 28)
+('Guayaquil', 'PLAYERS AND ELECTRONICS', 30)
+nan
+nan
+('Guayaquil', 'PLAYERS AND ELECTRONICS', 28)
+('Guayaquil', 'PET SUPPLIES', 51)
+('Guayaquil', 'PLAYERS AND ELECTRONICS', 51)
+('Guayaquil', 'POULTRY', 24)
+nan
+nan
+('Guayaquil', 'POULTRY', 30)
+('Guayaquil', 'POULTRY', 26)
+('Guayaquil', 'POULTRY', 32)
+('Guayaquil', 'POULTRY', 51)
+('Guayaquil', 'POULTRY', 34)
+('Guayaquil', 'POULTRY', 29)
+('Guayaquil', 'PREPARED FOODS', 28)
+nan
+nan
+('Guayaquil', 'PREPARED FOODS', 32)
+('Guayaquil', 'PREPARED FOODS', 34)
+('Guayaquil', 'PREPARED FOODS', 29)
+('Guayaquil', 'PREPARED FOODS', 51)
+('Guayaquil', 'PREPARED FOODS', 24)
+('Guayaquil', 'PRODUCE', 26)
+nan
+('Guayaquil', 'PRODUCE', 29)
+('Guayaquil', 'PRODUCE', 28)
+('Guayaquil', 'PRODUCE', 51)
+('Guayaquil', 'PRODUCE', 34)
+('Guayaquil', 'SCHOOL AND OFFICE SUPPLIES', 24)
+('Guayaquil', 'SCHOOL AND OFFICE SUPPLIES', 26)
+('Guayaquil', 'SCHOOL AND OFFICE SUPPLIES', 28)
+('Guayaquil', 'PRODUCE', 30)
+('Guayaquil', 'SCHOOL AND OFFICE SUPPLIES', 30)
+('Guayaquil', 'SCHOOL AND OFFICE SUPPLIES', 29)
+('Guayaquil', 'SCHOOL AND OFFICE SUPPLIES', 32)
+('Guayaquil', 'SCHOOL AND OFFICE SUPPLIES', 34)
+('Guayaquil', 'PRODUCE', 32)
+('Guayaquil', 'SCHOOL AND OFFICE SUPPLIES', 51)
+('Guayaquil', 'SEAFOOD', 26)
+('Guayaquil', 'SEAFOOD', 24)
+('Guayaquil', 'SEAFOOD', 32)
+('Guayaquil', 'SEAFOOD', 30)
+('Guayaquil', 'SEAFOOD', 28)
+('Guayaquil', 'SEAFOOD', 34)
+('Guayaquil', 'SEAFOOD', 29)
+nan
+('Guayaquil', 'SEAFOOD', 51)
+('Ibarra', 'BEAUTY', 15)
+('Ibarra', 'AUTOMOTIVE', 15)
+nan
+('Ibarra', 'BREAD/BAKERY', 15)
+('Ibarra', 'DELI', 15)
+('Ibarra', 'BEVERAGES', 15)
+nan
+('Ibarra', 'FROZEN FOODS', 15)
+nan
+nan
+nan
+('Ibarra', 'GROCERY I', 15)
+nan
+('Ibarra', 'HOME AND KITCHEN II', 15)
+('Ibarra', 'HOME CARE', 15)
+('Ibarra', 'DAIRY', 15)
+nan
+('Ibarra', 'LIQUOR,WINE,BEER', 15)
+nan
+('Ibarra', 'LADIESWEAR', 15)
+('Ibarra', 'MEATS', 15)
+nan
+('Ibarra', 'PLAYERS AND ELECTRONICS', 15)
+('Ibarra', 'POULTRY', 15)
+('Ibarra', 'PREPARED FOODS', 15)
+('Ibarra', 'SCHOOL AND OFFICE SUPPLIES', 15)
+nan
+('Ibarra', 'SEAFOOD', 15)
+nan
+('Latacunga', 'BEAUTY', 12)
+('Latacunga', 'AUTOMOTIVE', 13)
+('Latacunga', 'BEVERAGES', 12)
+('Ibarra', 'PRODUCE', 15)
+('Latacunga', 'BEAUTY', 13)
+('Latacunga', 'AUTOMOTIVE', 12)
+('Latacunga', 'BEVERAGES', 13)
+('Latacunga', 'CELEBRATION', 13)
+('Latacunga', 'BREAD/BAKERY', 12)
+('Latacunga', 'BREAD/BAKERY', 13)
+('Latacunga', 'CLEANING', 12)
+('Latacunga', 'DAIRY', 12)
+('Latacunga', 'DAIRY', 13)
+('Latacunga', 'CLEANING', 13)
+('Latacunga', 'DELI', 13)
+nan
+('Latacunga', 'FROZEN FOODS', 12)
+('Latacunga', 'DELI', 12)
+('Latacunga', 'GROCERY I', 12)
+nan
+nan
+('Latacunga', 'GROCERY I', 13)
+nan
+('Latacunga', 'EGGS', 12)
+('Latacunga', 'HOME AND KITCHEN I', 13)
+nan
+('Latacunga', 'HARDWARE', 12)
+('Latacunga', 'HOME AND KITCHEN II', 12)
+('Latacunga', 'HOME AND KITCHEN II', 13)
+('Latacunga', 'HOME AND KITCHEN I', 12)
+nan
+('Latacunga', 'HOME CARE', 12)
+nan
+('Latacunga', 'HOME CARE', 13)
+('Latacunga', 'LIQUOR,WINE,BEER', 13)
+nan
+nan
+('Latacunga', 'LIQUOR,WINE,BEER', 12)
+nan
+('Latacunga', 'MEATS', 13)
+nan
+('Latacunga', 'PERSONAL CARE', 12)
+('Latacunga', 'PLAYERS AND ELECTRONICS', 12)
+nan
+nan
+nan
+('Latacunga', 'POULTRY', 13)
+('Latacunga', 'PET SUPPLIES', 12)
+('Latacunga', 'PET SUPPLIES', 13)
+('Latacunga', 'PREPARED FOODS', 13)
+('Latacunga', 'PRODUCE', 13)
+('Latacunga', 'PRODUCE', 12)
+('Latacunga', 'SEAFOOD', 12)
+('Latacunga', 'SCHOOL AND OFFICE SUPPLIES', 12)
+nan
+('Latacunga', 'SCHOOL AND OFFICE SUPPLIES', 13)
+('Libertad', 'AUTOMOTIVE', 36)
+('Libertad', 'BEAUTY', 36)
+('Latacunga', 'SEAFOOD', 13)
+('Libertad', 'BEVERAGES', 36)
+nan
+('Libertad', 'DAIRY', 36)
+nan
+('Libertad', 'FROZEN FOODS', 36)
+('Libertad', 'GROCERY I', 36)
+nan
+('Libertad', 'DELI', 36)
+nan
+nan
+('Libertad', 'HOME AND KITCHEN I', 36)
+nan
+nan
+('Libertad', 'LAWN AND GARDEN', 36)
+nan
+('Libertad', 'HOME AND KITCHEN II', 36)
+('Libertad', 'MEATS', 36)
+nan
+('Libertad', 'PET SUPPLIES', 36)
+('Libertad', 'LIQUOR,WINE,BEER', 36)
+nan
+('Libertad', 'POULTRY', 36)
+('Libertad', 'PERSONAL CARE', 36)
+('Libertad', 'SCHOOL AND OFFICE SUPPLIES', 36)
+nan
+('Libertad', 'SEAFOOD', 36)
+nan
+('Loja', 'BEVERAGES', 38)
+('Libertad', 'PRODUCE', 36)
+('Loja', 'BREAD/BAKERY', 38)
+('Libertad', 'HOME CARE', 36)
+('Loja', 'BEAUTY', 38)
+nan
+('Loja', 'CLEANING', 38)
+nan
+nan
+('Loja', 'EGGS', 38)
+('Loja', 'GROCERY II', 38)
+nan
+('Loja', 'HOME AND KITCHEN II', 38)
+('Loja', 'GROCERY I', 38)
+nan
+('Loja', 'HOME CARE', 38)
+nan
+('Loja', 'LIQUOR,WINE,BEER', 38)
+nan
+('Loja', 'LINGERIE', 38)
+('Loja', 'PERSONAL CARE', 38)
+('Loja', 'MEATS', 38)
+nan
+('Loja', 'PREPARED FOODS', 38)
+('Loja', 'PRODUCE', 38)
+('Loja', 'PLAYERS AND ELECTRONICS', 38)
+('Loja', 'SCHOOL AND OFFICE SUPPLIES', 38)
+('Loja', 'SEAFOOD', 38)
+('Machala', 'AUTOMOTIVE', 40)
+nan
+nan
+('Machala', 'BEAUTY', 40)
+('Machala', 'BEAUTY', 41)
+('Loja', 'PET SUPPLIES', 38)
+nan
+('Machala', 'BEVERAGES', 41)
+('Machala', 'BEVERAGES', 40)
+('Machala', 'CELEBRATION', 40)
+('Machala', 'BREAD/BAKERY', 40)
+('Machala', 'BREAD/BAKERY', 41)
+('Machala', 'CLEANING', 40)
+('Machala', 'CLEANING', 41)
+('Machala', 'DELI', 40)
+('Machala', 'DAIRY', 41)
+nan
+('Machala', 'DAIRY', 40)
+('Machala', 'FROZEN FOODS', 40)
+('Machala', 'DELI', 41)
+nan
+('Machala', 'GROCERY I', 40)
+('Machala', 'EGGS', 41)
+nan
+nan
+('Machala', 'EGGS', 40)
+('Machala', 'GROCERY I', 41)
+('Machala', 'HOME AND KITCHEN I', 40)
+nan
+('Machala', 'HOME AND KITCHEN II', 40)
+('Machala', 'HOME AND KITCHEN II', 41)
+nan
+('Machala', 'HOME AND KITCHEN I', 41)
+('Machala', 'HOME CARE', 41)
+nan
+nan
+('Machala', 'HOME CARE', 40)
+nan
+nan
+('Machala', 'LINGERIE', 41)
+('Machala', 'LIQUOR,WINE,BEER', 41)
+nan
+nan
+('Machala', 'MEATS', 41)
+nan
+('Machala', 'PERSONAL CARE', 40)
+nan
+nan
+nan
+nan
+('Machala', 'PET SUPPLIES', 41)
+('Machala', 'PLAYERS AND ELECTRONICS', 41)
+('Machala', 'PREPARED FOODS', 40)
+('Machala', 'SCHOOL AND OFFICE SUPPLIES', 40)
+('Machala', 'PRODUCE', 41)
+('Machala', 'SCHOOL AND OFFICE SUPPLIES', 41)
+('Machala', 'PRODUCE', 40)
+('Machala', 'SEAFOOD', 40)
+('Manta', 'AUTOMOTIVE', 52)
+('Manta', 'BEAUTY', 52)
+('Machala', 'PREPARED FOODS', 41)
+('Manta', 'AUTOMOTIVE', 53)
+('Manta', 'BEVERAGES', 52)
+('Machala', 'SEAFOOD', 41)
+nan
+('Manta', 'CELEBRATION', 52)
+('Manta', 'BEVERAGES', 53)
+('Manta', 'BEAUTY', 53)
+('Manta', 'CLEANING', 52)
+('Manta', 'BREAD/BAKERY', 53)
+('Manta', 'CLEANING', 53)
+('Manta', 'DAIRY', 52)
+('Manta', 'DAIRY', 53)
+('Manta', 'DELI', 52)
+('Manta', 'EGGS', 52)
+('Manta', 'EGGS', 53)
+('Manta', 'FROZEN FOODS', 52)
+('Manta', 'GROCERY I', 52)
+('Manta', 'DELI', 53)
+('Manta', 'GROCERY II', 52)
+nan
+nan
+('Manta', 'HARDWARE', 53)
+('Manta', 'CELEBRATION', 53)
+('Manta', 'HOME AND KITCHEN I', 52)
+('Manta', 'HARDWARE', 52)
+('Manta', 'GROCERY I', 53)
+('Manta', 'HOME AND KITCHEN II', 52)
+nan
+('Manta', 'HOME APPLIANCES', 53)
+('Manta', 'HOME AND KITCHEN I', 53)
+('Manta', 'HOME CARE', 52)
+('Manta', 'LADIESWEAR', 52)
+nan
+nan
+('Manta', 'HOME AND KITCHEN II', 53)
+('Manta', 'HOME CARE', 53)
+nan
+('Manta', 'LINGERIE', 52)
+('Manta', 'LADIESWEAR', 53)
+nan
+('Manta', 'LIQUOR,WINE,BEER', 52)
+('Manta', 'MEATS', 52)
+nan
+('Manta', 'PERSONAL CARE', 52)
+('Manta', 'PET SUPPLIES', 52)
+nan
+('Manta', 'PLAYERS AND ELECTRONICS', 53)
+('Manta', 'MEATS', 53)
+('Manta', 'PLAYERS AND ELECTRONICS', 52)
+('Manta', 'PREPARED FOODS', 52)
+('Manta', 'POULTRY', 52)
+('Manta', 'PREPARED FOODS', 53)
+('Manta', 'PRODUCE', 52)
+('Manta', 'PRODUCE', 53)
+('Manta', 'SCHOOL AND OFFICE SUPPLIES', 52)
+('Manta', 'SEAFOOD', 52)
+nan
+('Manta', 'SCHOOL AND OFFICE SUPPLIES', 53)
+('Playas', 'BABY CARE', 35)
+('Playas', 'BEAUTY', 35)
+nan
+('Manta', 'SEAFOOD', 53)
+('Playas', 'BEVERAGES', 35)
+('Playas', 'AUTOMOTIVE', 35)
+('Playas', 'CELEBRATION', 35)
+('Playas', 'CLEANING', 35)
+('Playas', 'DAIRY', 35)
+nan
+('Playas', 'GROCERY I', 35)
+nan
+('Playas', 'DELI', 35)
+('Playas', 'HARDWARE', 35)
+nan
+('Playas', 'GROCERY II', 35)
+('Playas', 'HOME AND KITCHEN I', 35)
+nan
+('Playas', 'LINGERIE', 35)
+nan
+('Playas', 'LIQUOR,WINE,BEER', 35)
+('Playas', 'HOME CARE', 35)
+('Playas', 'MEATS', 35)
+('Playas', 'PET SUPPLIES', 35)
+nan
+('Playas', 'POULTRY', 35)
+('Playas', 'HOME AND KITCHEN II', 35)
+('Playas', 'PREPARED FOODS', 35)
+('Playas', 'SEAFOOD', 35)
+('Playas', 'SCHOOL AND OFFICE SUPPLIES', 35)
+('Playas', 'PERSONAL CARE', 35)
+nan
+('Puyo', 'BEAUTY', 22)
+('Playas', 'PRODUCE', 35)
+('Puyo', 'AUTOMOTIVE', 22)
+('Puyo', 'BEVERAGES', 22)
+('Puyo', 'CLEANING', 22)
+('Puyo', 'BREAD/BAKERY', 22)
+('Puyo', 'CELEBRATION', 22)
+('Puyo', 'DAIRY', 22)
+('Puyo', 'GROCERY I', 22)
+('Puyo', 'FROZEN FOODS', 22)
+nan
+('Puyo', 'DELI', 22)
+('Puyo', 'HOME AND KITCHEN I', 22)
+nan
+nan
+('Puyo', 'HOME AND KITCHEN II', 22)
+('Puyo', 'LAWN AND GARDEN', 22)
+nan
+nan
+('Puyo', 'HOME CARE', 22)
+('Puyo', 'PERSONAL CARE', 22)
+('Puyo', 'LIQUOR,WINE,BEER', 22)
+nan
+('Puyo', 'PET SUPPLIES', 22)
+('Puyo', 'PRODUCE', 22)
+nan
+('Puyo', 'SCHOOL AND OFFICE SUPPLIES', 22)
+('Puyo', 'SEAFOOD', 22)
+('Quevedo', 'AUTOMOTIVE', 33)
+nan
+('Quevedo', 'BEVERAGES', 33)
+('Quevedo', 'BEAUTY', 33)
+('Quevedo', 'CELEBRATION', 33)
+('Puyo', 'POULTRY', 22)
+('Puyo', 'PREPARED FOODS', 22)
+nan
+('Quevedo', 'BREAD/BAKERY', 33)
+('Quevedo', 'EGGS', 33)
+('Quevedo', 'FROZEN FOODS', 33)
+('Quevedo', 'DAIRY', 33)
+nan
+('Quevedo', 'GROCERY II', 33)
+('Quevedo', 'DELI', 33)
+('Quevedo', 'GROCERY I', 33)
+nan
+('Quevedo', 'HOME AND KITCHEN I', 33)
+('Quevedo', 'HOME AND KITCHEN II', 33)
+('Quevedo', 'LINGERIE', 33)
+('Quevedo', 'MEATS', 33)
+nan
+('Quevedo', 'PET SUPPLIES', 33)
+('Quevedo', 'HOME CARE', 33)
+nan
+('Quevedo', 'POULTRY', 33)
+nan
+('Quevedo', 'SCHOOL AND OFFICE SUPPLIES', 33)
+('Quevedo', 'PRODUCE', 33)
+('Quevedo', 'PREPARED FOODS', 33)
+('Quevedo', 'SEAFOOD', 33)
+nan
+('Quevedo', 'PLAYERS AND ELECTRONICS', 33)
+nan
+nan
+nan
+('Quito', 'AUTOMOTIVE', 3)
+nan
+nan
+nan
+('Quito', 'AUTOMOTIVE', 20)
+('Quito', 'AUTOMOTIVE', 10)
+('Quito', 'AUTOMOTIVE', 17)
+('Quito', 'AUTOMOTIVE', 44)
+('Quito', 'AUTOMOTIVE', 46)
+('Quito', 'AUTOMOTIVE', 18)
+('Quito', 'AUTOMOTIVE', 47)
+('Quito', 'AUTOMOTIVE', 48)
+nan
+('Quito', 'AUTOMOTIVE', 45)
+('Quito', 'BEAUTY', 1)
+('Quito', 'AUTOMOTIVE', 49)
+nan
+('Quito', 'BABY CARE', 10)
+('Quito', 'BEAUTY', 2)
+('Quito', 'BEAUTY', 7)
+('Quito', 'BEAUTY', 6)
+('Quito', 'BEAUTY', 4)
+('Quito', 'BEAUTY', 3)
+('Quito', 'BEAUTY', 9)
+('Quito', 'BEAUTY', 8)
+('Quito', 'BEAUTY', 20)
+('Quito', 'BEAUTY', 17)
+('Quito', 'BEAUTY', 10)
+('Quito', 'BEAUTY', 44)
+('Quito', 'BEAUTY', 18)
+('Quito', 'BEAUTY', 45)
+('Quito', 'BEAUTY', 47)
+('Quito', 'BEAUTY', 48)
+('Quito', 'BEVERAGES', 1)
+('Quito', 'BEVERAGES', 2)
+('Quito', 'BEVERAGES', 3)
+('Quito', 'BEVERAGES', 6)
+('Quito', 'BEAUTY', 46)
+('Quito', 'BEAUTY', 49)
+('Quito', 'BEVERAGES', 4)
+('Quito', 'BEVERAGES', 7)
+('Quito', 'BEVERAGES', 8)
+('Quito', 'BEVERAGES', 9)
+('Quito', 'BEVERAGES', 17)
+('Quito', 'BEVERAGES', 10)
+('Quito', 'BEVERAGES', 20)
+('Quito', 'BEVERAGES', 46)
+('Quito', 'BEVERAGES', 18)
+('Quito', 'BEVERAGES', 45)
+('Quito', 'BEVERAGES', 44)
+nan
+nan
+('Quito', 'BEVERAGES', 49)
+('Quito', 'BEVERAGES', 48)
+('Quito', 'BEVERAGES', 47)
+('Quito', 'BREAD/BAKERY', 2)
+nan
+nan
+('Quito', 'BREAD/BAKERY', 6)
+('Quito', 'BREAD/BAKERY', 9)
+('Quito', 'BREAD/BAKERY', 10)
+('Quito', 'BREAD/BAKERY', 17)
+('Quito', 'BREAD/BAKERY', 7)
+('Quito', 'BREAD/BAKERY', 44)
+('Quito', 'BREAD/BAKERY', 8)
+('Quito', 'BREAD/BAKERY', 20)
+('Quito', 'BREAD/BAKERY', 18)
+('Quito', 'BREAD/BAKERY', 45)
+nan
+nan
+('Quito', 'BREAD/BAKERY', 47)
+nan
+('Quito', 'BREAD/BAKERY', 48)
+('Quito', 'CELEBRATION', 3)
+('Quito', 'CELEBRATION', 4)
+('Quito', 'CELEBRATION', 2)
+('Quito', 'CELEBRATION', 6)
+('Quito', 'CELEBRATION', 8)
+nan
+nan
+('Quito', 'CELEBRATION', 18)
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+('Quito', 'CLEANING', 3)
+nan
+('Quito', 'CLEANING', 2)
+('Quito', 'CLEANING', 4)
+('Quito', 'CLEANING', 6)
+nan
+('Quito', 'CLEANING', 7)
+nan
+('Quito', 'CLEANING', 9)
+('Quito', 'CLEANING', 8)
+('Quito', 'CLEANING', 17)
+('Quito', 'CLEANING', 20)
+('Quito', 'CLEANING', 44)
+('Quito', 'CLEANING', 45)
+('Quito', 'CLEANING', 46)
+('Quito', 'CLEANING', 47)
+('Quito', 'CLEANING', 48)
+('Quito', 'CLEANING', 18)
+('Quito', 'CLEANING', 49)
+('Quito', 'DAIRY', 1)
+('Quito', 'DAIRY', 3)
+('Quito', 'DAIRY', 2)
+('Quito', 'DAIRY', 4)
+('Quito', 'DAIRY', 6)
+('Quito', 'DAIRY', 7)
+('Quito', 'DAIRY', 8)
+('Quito', 'DAIRY', 9)
+nan
+('Quito', 'DAIRY', 44)
+('Quito', 'DAIRY', 10)
+('Quito', 'DAIRY', 20)
+('Quito', 'DAIRY', 18)
+('Quito', 'DAIRY', 47)
+('Quito', 'DAIRY', 46)
+('Quito', 'DAIRY', 48)
+('Quito', 'DAIRY', 45)
+('Quito', 'DELI', 1)
+('Quito', 'DAIRY', 49)
+nan
+('Quito', 'DELI', 3)
+nan
+('Quito', 'DELI', 4)
+('Quito', 'DELI', 9)
+('Quito', 'DELI', 7)
+('Quito', 'DELI', 8)
+('Quito', 'DELI', 10)
+('Quito', 'DELI', 17)
+('Quito', 'DELI', 20)
+('Quito', 'DELI', 45)
+('Quito', 'DELI', 46)
+nan
+('Quito', 'DELI', 18)
+('Quito', 'DELI', 47)
+nan
+('Quito', 'EGGS', 1)
+nan
+nan
+('Quito', 'EGGS', 2)
+('Quito', 'EGGS', 4)
+('Quito', 'EGGS', 6)
+('Quito', 'EGGS', 9)
+('Quito', 'EGGS', 7)
+('Quito', 'EGGS', 8)
+nan
+nan
+nan
+nan
+('Quito', 'EGGS', 46)
+nan
+('Quito', 'EGGS', 18)
+nan
+('Quito', 'EGGS', 48)
+nan
+('Quito', 'FROZEN FOODS', 3)
+('Quito', 'FROZEN FOODS', 2)
+('Quito', 'EGGS', 47)
+('Quito', 'FROZEN FOODS', 6)
+('Quito', 'FROZEN FOODS', 7)
+('Quito', 'FROZEN FOODS', 4)
+('Quito', 'FROZEN FOODS', 8)
+('Quito', 'FROZEN FOODS', 9)
+('Quito', 'FROZEN FOODS', 20)
+('Quito', 'FROZEN FOODS', 18)
+('Quito', 'FROZEN FOODS', 17)
+('Quito', 'FROZEN FOODS', 10)
+('Quito', 'FROZEN FOODS', 45)
+('Quito', 'FROZEN FOODS', 44)
+('Quito', 'FROZEN FOODS', 47)
+('Quito', 'FROZEN FOODS', 46)
+('Quito', 'FROZEN FOODS', 48)
+nan
+('Quito', 'GROCERY I', 3)
+('Quito', 'GROCERY I', 4)
+('Quito', 'GROCERY I', 1)
+('Quito', 'GROCERY I', 6)
+('Quito', 'GROCERY I', 8)
+('Quito', 'GROCERY I', 7)
+('Quito', 'GROCERY I', 2)
+('Quito', 'GROCERY I', 10)
+('Quito', 'GROCERY I', 17)
+('Quito', 'GROCERY I', 18)
+('Quito', 'GROCERY I', 45)
+('Quito', 'GROCERY I', 44)
+('Quito', 'GROCERY I', 9)
+('Quito', 'GROCERY I', 20)
+('Quito', 'GROCERY I', 46)
+('Quito', 'GROCERY I', 49)
+('Quito', 'GROCERY I', 47)
+('Quito', 'GROCERY I', 48)
+nan
+nan
+nan
+('Quito', 'GROCERY II', 2)
+('Quito', 'GROCERY II', 7)
+nan
+('Quito', 'GROCERY II', 8)
+nan
+('Quito', 'GROCERY II', 17)
+('Quito', 'GROCERY II', 9)
+nan
+('Quito', 'GROCERY II', 45)
+nan
+nan
+('Quito', 'GROCERY II', 18)
+nan
+('Quito', 'GROCERY II', 48)
+nan
+nan
+nan
+nan
+('Quito', 'HARDWARE', 10)
+nan
+nan
+nan
+nan
+nan
+nan
+('Quito', 'HOME AND KITCHEN I', 2)
+('Quito', 'HOME AND KITCHEN I', 3)
+('Quito', 'HOME AND KITCHEN I', 6)
+nan
+nan
+('Quito', 'HOME AND KITCHEN I', 4)
+('Quito', 'HOME AND KITCHEN I', 8)
+('Quito', 'HOME AND KITCHEN I', 7)
+('Quito', 'HOME AND KITCHEN I', 20)
+('Quito', 'HOME AND KITCHEN I', 10)
+('Quito', 'HOME AND KITCHEN I', 18)
+nan
+('Quito', 'HOME AND KITCHEN I', 45)
+nan
+('Quito', 'HOME AND KITCHEN I', 17)
+('Quito', 'HOME AND KITCHEN I', 49)
+('Quito', 'HOME AND KITCHEN I', 48)
+('Quito', 'HOME AND KITCHEN I', 47)
+('Quito', 'HOME AND KITCHEN II', 3)
+('Quito', 'HOME AND KITCHEN II', 1)
+('Quito', 'HOME AND KITCHEN II', 4)
+('Quito', 'HOME AND KITCHEN II', 7)
+('Quito', 'HOME AND KITCHEN II', 2)
+('Quito', 'HOME AND KITCHEN II', 8)
+nan
+('Quito', 'HOME AND KITCHEN II', 9)
+('Quito', 'HOME AND KITCHEN II', 6)
+('Quito', 'HOME AND KITCHEN II', 10)
+('Quito', 'HOME AND KITCHEN II', 44)
+('Quito', 'HOME AND KITCHEN II', 45)
+('Quito', 'HOME AND KITCHEN II', 20)
+('Quito', 'HOME AND KITCHEN II', 18)
+('Quito', 'HOME AND KITCHEN II', 49)
+('Quito', 'HOME AND KITCHEN II', 48)
+('Quito', 'HOME AND KITCHEN II', 47)
+('Quito', 'HOME AND KITCHEN II', 46)
+nan
+nan
+nan
+nan
+('Quito', 'HOME APPLIANCES', 44)
+nan
+('Quito', 'HOME CARE', 1)
+('Quito', 'HOME CARE', 6)
+('Quito', 'HOME CARE', 3)
+('Quito', 'HOME CARE', 4)
+('Quito', 'HOME CARE', 7)
+('Quito', 'HOME CARE', 9)
+('Quito', 'HOME CARE', 8)
+('Quito', 'HOME CARE', 2)
+('Quito', 'HOME CARE', 18)
+('Quito', 'HOME CARE', 17)
+('Quito', 'HOME CARE', 10)
+('Quito', 'HOME CARE', 44)
+('Quito', 'HOME CARE', 45)
+('Quito', 'HOME CARE', 46)
+('Quito', 'HOME CARE', 47)
+('Quito', 'HOME CARE', 20)
+('Quito', 'HOME CARE', 48)
+('Quito', 'HOME CARE', 49)
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+('Quito', 'LAWN AND GARDEN', 1)
+('Quito', 'LAWN AND GARDEN', 4)
+('Quito', 'LAWN AND GARDEN', 7)
+nan
+('Quito', 'LAWN AND GARDEN', 9)
+nan
+('Quito', 'LAWN AND GARDEN', 8)
+('Quito', 'LAWN AND GARDEN', 10)
+('Quito', 'LAWN AND GARDEN', 17)
+('Quito', 'LAWN AND GARDEN', 20)
+('Quito', 'LAWN AND GARDEN', 18)
+('Quito', 'LAWN AND GARDEN', 45)
+('Quito', 'LAWN AND GARDEN', 46)
+nan
+nan
+nan
+('Quito', 'LAWN AND GARDEN', 47)
+('Quito', 'LINGERIE', 1)
+('Quito', 'LINGERIE', 4)
+('Quito', 'LINGERIE', 3)
+nan
+('Quito', 'LINGERIE', 7)
+nan
+('Quito', 'LINGERIE', 10)
+nan
+nan
+('Quito', 'LINGERIE', 18)
+('Quito', 'LINGERIE', 6)
+('Quito', 'LINGERIE', 17)
+('Quito', 'LINGERIE', 20)
+('Quito', 'LINGERIE', 45)
+('Quito', 'LINGERIE', 44)
+('Quito', 'LINGERIE', 46)
+('Quito', 'LINGERIE', 47)
+('Quito', 'LIQUOR,WINE,BEER', 1)
+('Quito', 'LINGERIE', 49)
+('Quito', 'LIQUOR,WINE,BEER', 3)
+('Quito', 'LINGERIE', 48)
+('Quito', 'LIQUOR,WINE,BEER', 4)
+('Quito', 'LIQUOR,WINE,BEER', 8)
+('Quito', 'LIQUOR,WINE,BEER', 7)
+('Quito', 'LIQUOR,WINE,BEER', 2)
+('Quito', 'LIQUOR,WINE,BEER', 6)
+('Quito', 'LIQUOR,WINE,BEER', 10)
+('Quito', 'LIQUOR,WINE,BEER', 17)
+('Quito', 'LIQUOR,WINE,BEER', 9)
+('Quito', 'LIQUOR,WINE,BEER', 44)
+('Quito', 'LIQUOR,WINE,BEER', 18)
+nan
+('Quito', 'LIQUOR,WINE,BEER', 20)
+('Quito', 'LIQUOR,WINE,BEER', 48)
+('Quito', 'LIQUOR,WINE,BEER', 46)
+('Quito', 'MAGAZINES', 8)
+nan
+('Quito', 'LIQUOR,WINE,BEER', 47)
+('Quito', 'LIQUOR,WINE,BEER', 49)
+nan
+nan
+nan
+nan
+nan
+('Quito', 'MEATS', 1)
+('Quito', 'MEATS', 2)
+('Quito', 'MAGAZINES', 47)
+('Quito', 'MEATS', 3)
+('Quito', 'MEATS', 4)
+nan
+('Quito', 'MEATS', 8)
+('Quito', 'MEATS', 6)
+('Quito', 'MEATS', 18)
+('Quito', 'MEATS', 10)
+nan
+('Quito', 'MEATS', 9)
+('Quito', 'MEATS', 20)
+('Quito', 'MEATS', 44)
+('Quito', 'MEATS', 46)
+('Quito', 'MEATS', 45)
+('Quito', 'MEATS', 49)
+('Quito', 'MEATS', 48)
+('Quito', 'MEATS', 47)
+nan
+nan
+('Quito', 'PERSONAL CARE', 4)
+('Quito', 'PERSONAL CARE', 6)
+nan
+('Quito', 'PERSONAL CARE', 3)
+('Quito', 'PERSONAL CARE', 7)
+('Quito', 'PERSONAL CARE', 9)
+('Quito', 'PERSONAL CARE', 18)
+('Quito', 'PERSONAL CARE', 10)
+nan
+('Quito', 'PERSONAL CARE', 20)
+('Quito', 'PERSONAL CARE', 45)
+('Quito', 'PERSONAL CARE', 46)
+('Quito', 'PERSONAL CARE', 48)
+('Quito', 'PERSONAL CARE', 47)
+('Quito', 'PERSONAL CARE', 17)
+('Quito', 'PET SUPPLIES', 1)
+('Quito', 'PERSONAL CARE', 49)
+('Quito', 'PET SUPPLIES', 2)
+('Quito', 'PET SUPPLIES', 7)
+('Quito', 'PET SUPPLIES', 6)
+('Quito', 'PET SUPPLIES', 3)
+('Quito', 'PET SUPPLIES', 4)
+('Quito', 'PET SUPPLIES', 8)
+nan
+('Quito', 'PET SUPPLIES', 9)
+('Quito', 'PET SUPPLIES', 44)
+('Quito', 'PET SUPPLIES', 20)
+('Quito', 'PET SUPPLIES', 18)
+nan
+('Quito', 'PET SUPPLIES', 45)
+('Quito', 'PET SUPPLIES', 47)
+('Quito', 'PET SUPPLIES', 48)
+('Quito', 'PET SUPPLIES', 49)
+('Quito', 'PET SUPPLIES', 46)
+('Quito', 'PLAYERS AND ELECTRONICS', 1)
+nan
+nan
+('Quito', 'PLAYERS AND ELECTRONICS', 3)
+nan
+nan
+('Quito', 'PLAYERS AND ELECTRONICS', 8)
+nan
+nan
+nan
+nan
+nan
+nan
+nan
+('Quito', 'PLAYERS AND ELECTRONICS', 46)
+nan
+('Quito', 'PLAYERS AND ELECTRONICS', 49)
+('Quito', 'POULTRY', 3)
+nan
+('Quito', 'POULTRY', 4)
+('Quito', 'POULTRY', 2)
+('Quito', 'PLAYERS AND ELECTRONICS', 48)
+nan
+('Quito', 'POULTRY', 7)
+('Quito', 'POULTRY', 8)
+nan
+('Quito', 'POULTRY', 20)
+('Quito', 'POULTRY', 18)
+nan
+('Quito', 'POULTRY', 17)
+nan
+('Quito', 'POULTRY', 44)
+nan
+('Quito', 'PREPARED FOODS', 1)
+('Quito', 'POULTRY', 45)
+('Quito', 'POULTRY', 48)
+nan
+('Quito', 'PREPARED FOODS', 4)
+('Quito', 'PREPARED FOODS', 6)
+('Quito', 'PREPARED FOODS', 3)
+('Quito', 'PREPARED FOODS', 2)
+('Quito', 'PREPARED FOODS', 7)
+('Quito', 'PREPARED FOODS', 8)
+('Quito', 'PREPARED FOODS', 9)
+('Quito', 'PREPARED FOODS', 10)
+('Quito', 'PREPARED FOODS', 17)
+('Quito', 'PREPARED FOODS', 44)
+('Quito', 'PREPARED FOODS', 45)
+('Quito', 'PREPARED FOODS', 46)
+('Quito', 'PREPARED FOODS', 20)
+('Quito', 'PREPARED FOODS', 18)
+('Quito', 'PREPARED FOODS', 49)
+('Quito', 'PREPARED FOODS', 47)
+('Quito', 'PRODUCE', 3)
+('Quito', 'PRODUCE', 2)
+('Quito', 'PREPARED FOODS', 48)
+('Quito', 'PRODUCE', 1)
+('Quito', 'PRODUCE', 8)
+('Quito', 'PRODUCE', 4)
+('Quito', 'PRODUCE', 7)
+('Quito', 'PRODUCE', 9)
+('Quito', 'PRODUCE', 17)
+('Quito', 'PRODUCE', 6)
+('Quito', 'PRODUCE', 10)
+('Quito', 'PRODUCE', 44)
+('Quito', 'PRODUCE', 20)
+('Quito', 'PRODUCE', 46)
+('Quito', 'PRODUCE', 18)
+('Quito', 'PRODUCE', 49)
+('Quito', 'PRODUCE', 47)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 1)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 2)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 4)
+('Quito', 'PRODUCE', 45)
+('Quito', 'PRODUCE', 48)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 7)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 3)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 6)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 8)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 9)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 17)
+nan
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 18)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 10)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 20)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 46)
+('Quito', 'SCHOOL AND OFFICE SUPPLIES', 49)
+nan
+nan
+nan
+('Quito', 'SEAFOOD', 2)
+('Quito', 'SEAFOOD', 3)
+nan
+('Quito', 'SEAFOOD', 7)
+('Quito', 'SEAFOOD', 4)
+('Quito', 'SEAFOOD', 6)
+('Quito', 'SEAFOOD', 8)
+('Quito', 'SEAFOOD', 9)
+('Quito', 'SEAFOOD', 10)
+('Quito', 'SEAFOOD', 20)
+nan
+('Quito', 'SEAFOOD', 18)
+('Quito', 'SEAFOOD', 44)
+('Quito', 'SEAFOOD', 47)
+nan
+('Quito', 'SEAFOOD', 46)
+('Riobamba', 'BEAUTY', 14)
+('Quito', 'SEAFOOD', 48)
+('Riobamba', 'AUTOMOTIVE', 14)
+('Quito', 'SEAFOOD', 49)
+('Riobamba', 'BEVERAGES', 14)
+('Riobamba', 'DAIRY', 14)
+('Riobamba', 'BREAD/BAKERY', 14)
+nan
+nan
+('Riobamba', 'DELI', 14)
+('Riobamba', 'FROZEN FOODS', 14)
+nan
+('Riobamba', 'GROCERY I', 14)
+('Riobamba', 'HOME AND KITCHEN I', 14)
+nan
+('Riobamba', 'HOME AND KITCHEN II', 14)
+('Riobamba', 'LADIESWEAR', 14)
+nan
+nan
+nan
+('Riobamba', 'HOME CARE', 14)
+nan
+('Riobamba', 'LIQUOR,WINE,BEER', 14)
+('Riobamba', 'PET SUPPLIES', 14)
+nan
+nan
+('Riobamba', 'PREPARED FOODS', 14)
+('Riobamba', 'PRODUCE', 14)
+('Riobamba', 'SCHOOL AND OFFICE SUPPLIES', 14)
+('Salinas', 'BEAUTY', 25)
+('Salinas', 'BEVERAGES', 25)
+('Salinas', 'BREAD/BAKERY', 25)
+('Riobamba', 'SEAFOOD', 14)
+nan
+('Salinas', 'CLEANING', 25)
+('Salinas', 'DAIRY', 25)
+('Salinas', 'DELI', 25)
+nan
+('Salinas', 'GROCERY I', 25)
+('Salinas', 'EGGS', 25)
+('Salinas', 'GROCERY II', 25)
+nan
+nan
+nan
+nan
+('Salinas', 'HOME AND KITCHEN II', 25)
+('Salinas', 'LINGERIE', 25)
+('Salinas', 'LIQUOR,WINE,BEER', 25)
+('Salinas', 'CELEBRATION', 25)
+('Salinas', 'PERSONAL CARE', 25)
+('Salinas', 'PET SUPPLIES', 25)
+('Salinas', 'LAWN AND GARDEN', 25)
+nan
+('Salinas', 'POULTRY', 25)
+nan
+('Salinas', 'SCHOOL AND OFFICE SUPPLIES', 25)
+('Salinas', 'MEATS', 25)
+('Salinas', 'PREPARED FOODS', 25)
+('Salinas', 'PRODUCE', 25)
+nan
+('Salinas', 'SEAFOOD', 25)
+('Santo Domingo', 'BABY CARE', 5)
+('Santo Domingo', 'AUTOMOTIVE', 16)
+nan
+('Santo Domingo', 'BEAUTY', 5)
+('Santo Domingo', 'BEAUTY', 16)
+('Santo Domingo', 'BEVERAGES', 5)
+('Santo Domingo', 'BEVERAGES', 16)
+('Santo Domingo', 'BEAUTY', 21)
+nan
+('Santo Domingo', 'BEVERAGES', 21)
+('Santo Domingo', 'BREAD/BAKERY', 5)
+('Santo Domingo', 'BREAD/BAKERY', 21)
+nan
+nan
+nan
+('Santo Domingo', 'CLEANING', 5)
+('Santo Domingo', 'DAIRY', 5)
+('Santo Domingo', 'CELEBRATION', 16)
+('Santo Domingo', 'CLEANING', 21)
+('Santo Domingo', 'DAIRY', 16)
+('Santo Domingo', 'DELI', 5)
+('Santo Domingo', 'DAIRY', 21)
+('Santo Domingo', 'DELI', 16)
+('Santo Domingo', 'DELI', 21)
+('Santo Domingo', 'EGGS', 5)
+nan
+nan
+('Santo Domingo', 'CELEBRATION', 21)
+('Santo Domingo', 'EGGS', 21)
+('Santo Domingo', 'FROZEN FOODS', 21)
+('Santo Domingo', 'GROCERY I', 5)
+('Santo Domingo', 'GROCERY II', 5)
+nan
+('Santo Domingo', 'GROCERY I', 16)
+nan
+('Santo Domingo', 'GROCERY II', 21)
+('Santo Domingo', 'FROZEN FOODS', 16)
+nan
+nan
+('Santo Domingo', 'HOME AND KITCHEN I', 5)
+('Santo Domingo', 'HOME AND KITCHEN I', 16)
+('Santo Domingo', 'HOME AND KITCHEN I', 21)
+('Santo Domingo', 'HOME AND KITCHEN II', 5)
+('Santo Domingo', 'GROCERY I', 21)
+nan
+nan
+('Santo Domingo', 'HOME CARE', 5)
+('Santo Domingo', 'HOME CARE', 16)
+nan
+('Santo Domingo', 'LAWN AND GARDEN', 16)
+('Santo Domingo', 'HOME CARE', 21)
+('Santo Domingo', 'LAWN AND GARDEN', 21)
+nan
+nan
+('Santo Domingo', 'LIQUOR,WINE,BEER', 5)
+('Santo Domingo', 'LIQUOR,WINE,BEER', 16)
+nan
+('Santo Domingo', 'LINGERIE', 21)
+nan
+('Santo Domingo', 'LIQUOR,WINE,BEER', 21)
+('Santo Domingo', 'MAGAZINES', 16)
+nan
+nan
+('Santo Domingo', 'MEATS', 16)
+('Santo Domingo', 'MEATS', 5)
+('Santo Domingo', 'PERSONAL CARE', 5)
+('Santo Domingo', 'PET SUPPLIES', 5)
+('Santo Domingo', 'MEATS', 21)
+('Santo Domingo', 'PET SUPPLIES', 16)
+('Santo Domingo', 'PERSONAL CARE', 21)
+('Santo Domingo', 'PERSONAL CARE', 16)
+('Santo Domingo', 'PET SUPPLIES', 21)
+('Santo Domingo', 'POULTRY', 5)
+nan
+nan
+('Santo Domingo', 'POULTRY', 16)
+('Santo Domingo', 'PREPARED FOODS', 5)
+('Santo Domingo', 'POULTRY', 21)
+('Santo Domingo', 'PREPARED FOODS', 16)
+('Santo Domingo', 'PRODUCE', 5)
+('Santo Domingo', 'PRODUCE', 21)
+('Santo Domingo', 'SCHOOL AND OFFICE SUPPLIES', 5)
+('Santo Domingo', 'PREPARED FOODS', 21)
+('Santo Domingo', 'SCHOOL AND OFFICE SUPPLIES', 16)
+('Santo Domingo', 'SEAFOOD', 5)
+('Santo Domingo', 'PLAYERS AND ELECTRONICS', 21)
+('Santo Domingo', 'SCHOOL AND OFFICE SUPPLIES', 21)
+('Santo Domingo', 'PRODUCE', 16)
+('Santo Domingo', 'SEAFOOD', 16)
+('Santo Domingo', 'SEAFOOD', 21)

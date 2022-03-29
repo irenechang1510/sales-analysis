@@ -1540,14 +1540,9 @@ def fit_sarimax(df):
         seasonal = True
     print(m)
     sxmodel = pm.auto_arima(df[['sales']], exogenous=df[['bool_promotion']],
-                            start_p=1, start_q=1,
-                            test='adf',
-                            max_p=2, max_q=2, m=m,
-                            start_P=0, start_Q=0, seasonal=seasonal, trace=5,
-                            # error_action='ignore',  
-                            # suppress_warnings=True, 
+                            test='adf', m=m,
+                            seasonal=seasonal, trace=True,
                             stepwise=True, random_state = 0)
-    print("Doneeee")
     return sxmodel
 ```
 

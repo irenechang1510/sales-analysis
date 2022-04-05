@@ -1343,7 +1343,7 @@ autocorrelation_plot(seasonal_diff.tolist());
 
 ### 2. Fit SARIMAX model
 
-From the seasonal differenced PACF and PACF plot, I'm going to choose p = 1, q = 2. And as we've seen, d = 0
+From the seasonal differenced ACF and PACF plot, I'm going to choose p = 1, q = 2. And as we've seen, d = 0
 
 For the seasonal order, we used seasonal differencing for the dataset, so D = 1, s = 7 since the data shows weekly periods. I'm going to set P = 1 and Q = 1 (PACF decays more gradual) for now -- what should be chosen here...
 

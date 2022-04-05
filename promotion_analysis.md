@@ -1345,7 +1345,7 @@ autocorrelation_plot(seasonal_diff.tolist());
 
 From the seasonal differenced ACF and PACF plot, I'm going to choose p = 1, q = 2. And as we've seen, d = 0
 
-For the seasonal order, we used seasonal differencing for the dataset, so D = 1, s = 7 since the data shows weekly periods. I'm going to set P = 1 and Q = 1 (PACF decays more gradual) for now -- what should be chosen here...
+For the seasonal order, we used seasonal differencing for the dataset, so D = 1, s = 7 since the data shows weekly periods. I'm going to set P = 1 and Q = 1 (PACF decays more gradual) for now
 
 #### Fitting the model by estimating the parameters from the graphs
 
@@ -1578,8 +1578,6 @@ for i in list(product(*megalist)):
             file_object.write(str(i))
         
 ```
-
-_The current bug: All the bad records don't get filtered out after one run (the number of combinations is different everytime I rerun the code-if it successfully filters out the combinations that don't fit the conditions then the length should stay the same). Don't know what's wrong in my code for now...._
 
 
 ```python

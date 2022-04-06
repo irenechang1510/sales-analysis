@@ -501,6 +501,7 @@ There are certain differences in the two distribution, but we don't know if it's
 
 ## 4. Is there more promotions if oil prices rise?
 
+In this section, we want to see how daily oil prices move along with the number of promotions. The data of oil prices are not continuous (some days without data). In order to merge the two dataframes and plot the time series, we need them to share the same equally spaced, daily time range, so preprcoessing the time frame is a big step in this section. NaN values are interpolated and shown on the graph.
 
 ```python
 oil_data = pd.read_csv('oil.csv')
@@ -762,9 +763,7 @@ n_kpss = pmd.arima.ndiffs(y, test="kpss")
 n_diff = max(n_adf, n_kpss)  
 y_diff = y.diff(n_diff)[1:]
 
-# backwards = smt.ccf(y_diff, x_diff, adjusted=False)[::-1]
 forwards = smt.ccf(x_diff, y_diff, adjusted=False)
-# ccf_output = np.r_[backwards[:-1], forwards]
 plt.figure(figsize=(18, 5))
 plt.stem(range(0, len(forwards)), forwards)
 plt.xlabel('Lag')

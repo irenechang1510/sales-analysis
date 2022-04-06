@@ -15,7 +15,6 @@ The write-up of this project is being done along with this notebook: You can acc
   * [5.2 Examine one SARIMAX model](#2-fit-sarimax-model)
   * [5.3 Promotion on sales of all products](#3-promotion-impact-on-sales-of-all-products)
   * [5.4 Analysis of the results](#4-analysis-of-the-results)
-* [6. Conclusions and next steps](#6-conclusion-and-next-step)
 
 _This project is made possible with the help of my mentors: Chaya, Kyle, Jeremy. Thank you so much!_
 
@@ -457,6 +456,7 @@ plt.show()
 
 
 ```python
+# comparing the means between these 2 clusters
 small_cluster = store_promotion[(store_promotion.cluster == 3) | (store_promotion.cluster == 13)]
 sns.kdeplot(small_cluster[small_cluster.onpromotion >= 500]['transactions'], color = 'black')
 sns.kdeplot(small_cluster[small_cluster.onpromotion < 500]['transactions'], color='blue')
@@ -479,6 +479,7 @@ plt.show()
 
 
 ```python
+# narrow down the scope and comparing the means between these 3 cities
 city_cluster = store_promotion[(store_promotion.city == 'El Carmen') | (store_promotion.city == 'Manta') | (store_promotion.city == 'Playas') | (store_promotion.city == 'Santo Domingo') | (store_promotion.city == 'Quevedo')]
 sns.kdeplot(city_cluster[city_cluster.onpromotion >= 500]['transactions'], color = 'black')
 sns.kdeplot(city_cluster[city_cluster.onpromotion < 500]['transactions'], color='blue')
@@ -502,6 +503,7 @@ There are certain differences in the two distribution, but we don't know if it's
 ## 4. Is there more promotions if oil prices rise?
 
 In this section, we want to see how daily oil prices move along with the number of promotions. The data of oil prices are not continuous (some days without data). In order to merge the two dataframes and plot the time series, we need them to share the same equally spaced, daily time range, so preprcoessing the time frame is a big step in this section. NaN values are interpolated and shown on the graph.
+
 
 ```python
 oil_data = pd.read_csv('oil.csv')
@@ -641,6 +643,7 @@ monthly_transactions_sales.head()
 
 
 ```python
+# create continuous date for the data
 continuous_date = pd.DataFrame(pd.date_range(start='1/1/2013', end='15/08/2017'), columns=['date'])
 oil_transactions = continuous_date.merge(monthly_transactions_sales, how='left', on='date')
 oil_transactions = oil_transactions.merge(oil_data, how='left', on='date')
@@ -648,6 +651,7 @@ oil_transactions = oil_transactions.merge(oil_data, how='left', on='date')
 
 
 ```python
+# interpolate NaN to fill in the gaps in the graph
 oil_transactions['dcoilwtico_interpolate'] = oil_transactions.dcoilwtico.interpolate()
 oil_transactions.onpromotion = oil_transactions.onpromotion.astype('float')
 oil_transactions.head()
@@ -740,7 +744,7 @@ plt.show()
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_31_0.png)
+![png](promotion_analysis_files/promotion_analysis_32_0.png)
 
 
 
@@ -774,7 +778,7 @@ plt.axhline(1.96/np.sqrt(len(x)), color='k', ls='--');
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_32_0.png)
+![png](promotion_analysis_files/promotion_analysis_33_0.png)
 
 
 The result shows us that many lags near lag 0 are significant/have moderately strong correlation, and this correlation eases off as we move further away. This indicates that the oil prices at small lags correlate with sales. More specifically, it suggests that the oil prices affect sales of certain days later, which makes sense since oil prices affect how people buy and sell.
@@ -970,7 +974,7 @@ plt.show()
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_42_0.png)
+![png](promotion_analysis_files/promotion_analysis_43_0.png)
 
 
 
@@ -1017,7 +1021,7 @@ plot_stationarity(continuous_date['sales'], 40)
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_43_0.png)
+![png](promotion_analysis_files/promotion_analysis_44_0.png)
 
 
 Mean is not constant and acf plot shows seasonality at lag 7
@@ -1241,7 +1245,7 @@ plot_stationarity(df_diff1, 40)
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_52_0.png)
+![png](promotion_analysis_files/promotion_analysis_53_0.png)
 
 
 However, after the first difference, we can see that the autocorrelation plunges right to big negative values, which implies that we are over-differencing. Hence, I'll just leave it as is. We do notice that there is a significant seasonal component of this time series, which we are going to handle next.
@@ -1250,8 +1254,10 @@ However, after the first difference, we can see that the autocorrelation plunges
 
 
 ```python
+# difference the original series with a seasonal period of 7
 seasonal_diff = continuous_date.diff(7).dropna()['sales']
 
+# check to see if the differenced series are stationary
 resADF2 = ADF_statt(seasonal_diff)
 resKPSS2 = KPSS_statt(seasonal_diff)
 test_values2 = zip(resADF2.values(), resKPSS2.values())
@@ -1326,25 +1332,26 @@ plot_stationarity(seasonal_diff, 40)
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_56_0.png)
+![png](promotion_analysis_files/promotion_analysis_57_0.png)
 
 
 
 ```python
+# check if seasonal differencing is effective -- should have decreasing flunctuation
 from pandas.plotting import autocorrelation_plot
 plt.figure(figsize=(18, 5))
 autocorrelation_plot(seasonal_diff.tolist());
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_57_0.png)
+![png](promotion_analysis_files/promotion_analysis_58_0.png)
 
 
 ### 2. Fit SARIMAX model
 
-From the seasonal differenced ACF and PACF plot, I'm going to choose p = 1, q = 2. And as we've seen, d = 0
+From the seasonal differenced PACF and PACF plot, I'm going to choose p = 1, q = 2. And as we've seen, d = 0
 
-For the seasonal order, we used seasonal differencing for the dataset, so D = 1, s = 7 since the data shows weekly periods. I'm going to set P = 1 and Q = 1 (PACF decays more gradual) for now
+For the seasonal order, we used seasonal differencing for the dataset, so D = 1, s = 7 since the data shows weekly periods. I'm going to set P = 1 and Q = 1 (PACF decays more gradual) for now -- what should be chosen here...
 
 #### Fitting the model by estimating the parameters from the graphs
 
@@ -1402,7 +1409,7 @@ plt.show()
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_61_0.png)
+![png](promotion_analysis_files/promotion_analysis_62_0.png)
 
 
 
@@ -1433,7 +1440,7 @@ plt.show()
 ```
 
 
-![png](promotion_analysis_files/promotion_analysis_63_0.png)
+![png](promotion_analysis_files/promotion_analysis_64_0.png)
 
 
 The model performs pretty well in the diagnostics plot as well as when we use it to predict the sales of this period. Since our main goal is to get the coefficients of the model and analyze their statistical significance, this model can give us a pretty good and accurate estimates. Through this I learned that the patterns in sales here are "modelable" and I will proceed to carry out the same process for all the combinations and summarize their performance.
@@ -1539,9 +1546,14 @@ def fit_sarimax(df):
         seasonal = True
     print(m)
     sxmodel = pm.auto_arima(df[['sales']], exogenous=df[['bool_promotion']],
-                            test='adf', m=m,
-                            seasonal=seasonal, trace=True,
+                            start_p=1, start_q=1,
+                            test='adf',
+                            max_p=2, max_q=2, m=m,
+                            start_P=0, start_Q=0, seasonal=seasonal, trace=5,
+                            # error_action='ignore',  
+                            # suppress_warnings=True, 
                             stepwise=True, random_state = 0)
+    print("Doneeee")
     return sxmodel
 ```
 

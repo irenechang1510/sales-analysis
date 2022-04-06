@@ -2,7 +2,7 @@
 
 [Markdown](https://github.com/irenechang1510/sales-analysis/blob/main/promotion_analysis.md) |
  [Write-up](https://docs.google.com/document/d/17K_Orm-841ehCpNxM86i9xVOcd3ARoUdNV-BwFXaDFY/edit?usp=sharing) | 
-[Notebook](https://github.com/irenechang1510/sales-analysis/blob/main/promotion_analysis.ipynb) | [Medium] (https://medium.com/p/1ed24cba2c52)
+[Notebook](https://github.com/irenechang1510/sales-analysis/blob/main/promotion_analysis.ipynb) | [Medium](https://medium.com/p/1ed24cba2c52)
 
 [Here](https://www.kaggle.com/c/store-sales-time-series-forecasting) is the Kaggle dataset I used!  
 
